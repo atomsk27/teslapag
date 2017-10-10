@@ -1644,3 +1644,15 @@ a:hover{
 input:invalid{
 	border: 1px solid red;
 }
+
+.img-scratch {
+	margin-left: 20px;
+	margin-top: 30px;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.eventos-first{
+	margin: 10px;
+	text-align: center;
+}
