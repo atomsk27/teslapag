@@ -1,6 +1,5 @@
 <?php
 
-
     include 'connection.php';
 
     $db_table_name="registro";
