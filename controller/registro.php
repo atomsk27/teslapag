@@ -60,10 +60,11 @@
 
     //$cabecera = "From: nobody@localhost";
 
-    if(mail($subs_email, $asunto, $mensaje)){
+    if(!mail($subs_email, $asunto, $mensaje)){
         //echo "Se ha enviado un mensaje a tu correo electrónico con el código de activación";
         //header('Location: ../views/success.html');
         header('Location: ../views/confirm.php?id='.$subs_aleatorio.'');
+
     }
     else {
         echo "Ha ocurrido un error enviando el mensaje";
