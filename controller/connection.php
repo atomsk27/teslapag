@@ -2,7 +2,7 @@
     /**/
     $db_host="localhost";
     $db_user="root";
-    $db_password="rootroot";
+    $db_password="";
     $db_name="teslaeducationsteam";
     /**/
 
