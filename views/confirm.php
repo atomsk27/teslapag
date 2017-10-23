@@ -10,7 +10,7 @@
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
     <link href="../css/responsive.css" rel="stylesheet">
-    <title>Confirmar Inscripcion</title>
+    <title> Inscripcion Confirmada</title>
 </head>
 <body>
     <header id="navigation">
