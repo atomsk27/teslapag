@@ -1,11 +1,6 @@
 <?php
 
-    /**/
-    $db_host="localhost";
-    $db_user="root";
-    $db_password="rootroot";
-    $db_name="teslaeducationsteam";
-    /**/
+    include 'connection.php';
 
     $db_table_name="registro";
     $db_connection = mysqli_connect($db_host, $db_user, $db_password, $db_name);
@@ -14,7 +9,6 @@
     	die('No se ha podido conectar a la base de datos');
     }
 
-	if(!empty($_GET["id"])) {
 
 	$query = 'UPDATE registro set activo = 1 WHERE uniqid= "' . $_GET["id"]. '"';
 

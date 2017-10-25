@@ -60,21 +60,49 @@
 
                 </div>
             </div>
+
+                <div class="row eventos-sec">
+                    <div class="col-sm-8" >
+                        <div class="eventos-second">
+                            <h3>Mejorando habilidades matemáticas utilizando Scratch</h3>
+                            <h5>Curso dirigido para docentes.</h5>
+                            <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos-docentes">Inscripciones</a>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-3">
+                        <img src="../images/services/scratch.jpg" alt="Scratch" class="img-scratch">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="title-one evn-past">Eventos Pasados</h3>
+                </div>
+
                 <div class="row eventos-pri">
                     <div class="col-sm-4">
-                        <h1 style= 'text-align:center;'>IMG</h1>
+                        <img src="../images/services/scratch.jpg" alt="Scratch" class="img-scratch">
                     </div>
-                    <div class="col-sm-8">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis hic porro magni totam natus quam. Non quas, quae blanditiis. Distinctio quo harum ipsa est, ea nihil minima odio voluptatibus ut.
+                    <div class="col-sm-8" >
+                        <div class="eventos-first">
+                            <h3>Creando Fractales y Polígonos con Scratch</h3>
+                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, facere sequi repellendus tenetur temporibus voluptate vero, illum id odit commodi distinctio facilis libero mollitia aut magni, rem beatae quibusdam minus.</h5>
+                            <!--<a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos">Inscripciones</a>-->
+                        </div>
 
+                    </div>
+                </div>
+
+                <div class="row eventos-sec">
+                    <div class="col-sm-12">
+                        <!--
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ea tenetur quisquam nesciunt. Tempora porro laudantium, ducimus nulla numquam exercitationem esse ea voluptate ab quo nisi praesentium, mollitia quas cum.</p>
+                        -->
                     </div>
                 </div>
                 <div class="row eventos-sec">
                     <div class="col-sm-12">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ea tenetur quisquam nesciunt. Tempora porro laudantium, ducimus nulla numquam exercitationem esse ea voluptate ab quo nisi praesentium, mollitia quas cum.</p>
-                        <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos">Inscripciones</a>
+                        <!--<a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos-docentes">Insc Docentes</a>-->
                     </div>
-
                 </div>
                 <!--MODAL EVENTOS-->
                 <div class="modal fade" id="registro-eventos" tabindex="-1" role="dialog" aria-hidden="true">
@@ -85,7 +113,7 @@
                                     <h2 class="text-center">Inscripciones</h2>
                             </div>
                             <div class="modal-body">
-                                <form action="../controller/registro.php" method="post" id='form'>
+                                <form action="../controller/registro.php?tipo=estudiante" method="post" id='form-estudiantes' name="form-estudiantes">
                                     <h3>Datos del participante</h3>
                                     <div class="row">
                                         <div class="form-group col-sm-6">
@@ -110,7 +138,7 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="edad">Edad</label>
-                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad' required>
+                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad'>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
@@ -150,6 +178,59 @@
                                 <input type="submit" value='Enviar' id='enviar' class='btn-default btn this-btn' >
                                 </form>
                             </div>
+                                <a class="navbar-brand" href="../"><h1><img src="../images/Logo_Index.png" alt="logo" width = '180px' height = '90px'></h1></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MODAL-->
+                <!-- MODAL DOCENTES-->
+                <div class="modal fade" id="registro-eventos-docentes" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role='document'>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h2 class="text-center">Inscripciones Docentes</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form action="../controller/registro.php?tipo=docente" method="post" id='form-docentes' name="form-docentes">
+                                    <h3>Datos del participante</h3>
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="nombres">Nombres</label>
+                                            <input type="text" class='form-control' id='nombres' placeholder="Nombres" name='nombres'>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="apellidos">Apellidos</label>
+                                            <input type="text" class='form-control' id='apellidos' placeholder="Apellidos" name='apellidos' required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="email">E-mail</label>
+                                            <input type="email" class='form-control' id='email' placeholder="E-Mail" name='email' required>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="colegio">Colegio</label>
+                                            <input type="text" class='form-control' id='colegio' placeholder="Colegio" name='colegio'>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="dni">DNI</label>
+                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' required>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="celularPadre">Celular</label>
+                                            <input type="number" class='form-control' id= 'celularPadre' placeholder='Celular' name="celularPadre">
+                                        </div>
+                                    </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <input type="submit" value='Enviar' id='enviar2' class='btn-default btn this-btn' >
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -174,7 +255,6 @@
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript">
         function validarForm(){
-
             if (!document.getElementbyId('dni').value.lenght == 8 && !document.getElementbyId('dniPadre').value.lenght == 8) {
                 alert('DNI debe contener 8 dígitos');
             }
@@ -183,7 +263,7 @@
             }
         }
     </script>
-    <script language="JavaScript">
+    <script type="text/javaScript">
         function pregunta(){
             if (confirm('¿Estas seguro de enviar este formulario?')){
                document.tuformulario.submit()
