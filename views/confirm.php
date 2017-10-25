@@ -57,7 +57,9 @@
                 if(!empty($_GET["id"])) {
                     $query = "SELECT * FROM " . $db_table_name . " WHERE uniqid = '" . $_GET["id"] . "'";
                     $consulta  = mysqli_query($db_conn, $query);
-                        while ($obj = mysqli_fetch_object($consulta)) {
+                    $obj = mysqli_fetch_object($consulta);
+                    if ( $obj->tipo = 'estudiante') {
+                        while ($obj) {
             ?>
             <div class="container gene">
                 <div class="container informacion">
@@ -142,6 +144,55 @@
             </div>
             <?php
                         }
+                }
+            else {
+                while ($obj) {
+            ?>
+                <div class="container gene">
+                    <div class="container informacion">
+                        <div class="col-sm-4">
+                            <h5><strong>Nombres:</strong>
+                                <?php echo $obj->nombres;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>Apellidos:</strong>
+                                <?php echo $obj->apellidos;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>E-mail:</strong>
+                                <?php echo $obj->email;?>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="container informacion">
+                        <div class="col-sm-4">
+                            <h5><strong>Colegio:</strong>
+                                <?php echo $obj->colegio;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>DNI:</strong>
+                                <?php echo $obj->dni;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>Número de Contacto:</strong>
+                                <?php echo $obj->celularPadre;?>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="col-sm-12">
+                        <a href="eventos.html" class="btn btn-default conf-btn">Nueva inscripción</a>
+                    </div>
+                </div>
+            <?php
+                }
+            }
                 }
                 }
                 mysqli_close($db_conn);

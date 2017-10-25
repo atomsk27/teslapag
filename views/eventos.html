@@ -64,9 +64,9 @@
                 <div class="row eventos-sec">
                     <div class="col-sm-8" >
                         <div class="eventos-second">
-                            <h3>Nuevo Evento</h3>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias dignissimos velit sed non voluptatum perferendis accusamus, optio consequuntur laboriosam repellat harum voluptatem corporis, distinctio ad autem. Ad ipsa, nobis doloremque.</h5>
-                            <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos">Inscripciones</a>
+                            <h3>Mejorando habilidades matemáticas utilizando Scratch</h3>
+                            <h5>Curso dirigido para docentes.</h5>
+                            <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos-docentes">Inscripciones</a>
                         </div>
 
                     </div>
@@ -113,7 +113,7 @@
                                     <h2 class="text-center">Inscripciones</h2>
                             </div>
                             <div class="modal-body">
-                                <form action="../controller/registro.php" method="post" id='form'>
+                                <form action="../controller/registro.php?tipo=estudiante" method="post" id='form-estudiantes' name="form-estudiantes">
                                     <h3>Datos del participante</h3>
                                     <div class="row">
                                         <div class="form-group col-sm-6">
@@ -138,7 +138,7 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="edad">Edad</label>
-                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad' required>
+                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad'>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
@@ -192,12 +192,12 @@
                                     <h2 class="text-center">Inscripciones Docentes</h2>
                             </div>
                             <div class="modal-body">
-                                <form action="../controller/registro.php" method="post" id='form'>
+                                <form action="../controller/registro.php?tipo=docente" method="post" id='form-docentes' name="form-docentes">
                                     <h3>Datos del participante</h3>
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="nombres">Nombres</label>
-                                            <input type="text" class='form-control' id='nombres' placeholder="Nombres" name='nombres' required>
+                                            <input type="text" class='form-control' id='nombres' placeholder="Nombres" name='nombres'>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="apellidos">Apellidos</label>
@@ -228,7 +228,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <input type="submit" value='Enviar' id='enviar' class='btn-default btn this-btn' >
+                                <input type="submit" value='Enviar' id='enviar2' class='btn-default btn this-btn' >
                                 </form>
                             </div>
                         </div>
@@ -255,7 +255,6 @@
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript">
         function validarForm(){
-
             if (!document.getElementbyId('dni').value.lenght == 8 && !document.getElementbyId('dniPadre').value.lenght == 8) {
                 alert('DNI debe contener 8 dígitos');
             }
@@ -264,7 +263,7 @@
             }
         }
     </script>
-    <script language="JavaScript">
+    <script type="text/javaScript">
         function pregunta(){
             if (confirm('¿Estas seguro de enviar este formulario?')){
                document.tuformulario.submit()
