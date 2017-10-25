@@ -43,7 +43,7 @@
         <div class="container">
                 <div class="jumbotron">
                     <h2 class='title-one titulo'>
-                        Confirmar inscripción
+                        Inscripción Confirmada
                     </h2>
                     <h3 class = 'DPersonales'>Datos Personales:</h3>
             <?php
@@ -58,8 +58,7 @@
                     $query = "SELECT * FROM " . $db_table_name . " WHERE uniqid = '" . $_GET["id"] . "'";
                     $consulta  = mysqli_query($db_conn, $query);
                     $obj = mysqli_fetch_object($consulta);
-                    if ( $obj->tipo = 'estudiante') {
-                        while ($obj) {
+                    if ( $obj->tipo == "estudiante") {
             ?>
             <div class="container gene">
                 <div class="container informacion">
@@ -143,17 +142,17 @@
                 </div>
             </div>
             <?php
-                        }
+
                 }
-            else {
-                while ($obj) {
+            elseif ($obj->tipo == 'docente') {
+
             ?>
                 <div class="container gene">
                     <div class="container informacion">
                         <div class="col-sm-4">
                             <h5><strong>Nombres:</strong>
                                 <?php echo $obj->nombres;?>
-                            </h5>
+                            </h5> 
                         </div>
                         <div class="col-sm-4">
                             <h5><strong>Apellidos:</strong>
@@ -191,7 +190,7 @@
                     </div>
                 </div>
             <?php
-                }
+
             }
                 }
                 }
