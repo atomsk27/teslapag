@@ -129,7 +129,7 @@
                 </div>
                 <div class="container">
                     <div class="code">
-                        <h3><strong>Código de Inscripcion:</strong>
+                        <h3><strong>Código de Inscripción:</strong>
                             <?php echo $obj->uniqid;?>
                         </h3>
                     </div>
@@ -152,7 +152,7 @@
                         <div class="col-sm-4">
                             <h5><strong>Nombres:</strong>
                                 <?php echo $obj->nombres;?>
-                            </h5> 
+                            </h5>
                         </div>
                         <div class="col-sm-4">
                             <h5><strong>Apellidos:</strong>
@@ -181,6 +181,14 @@
                                 <?php echo $obj->celularPadre;?>
                             </h5>
                         </div>
+                    </div>
+                    <div class="container">
+                        <div class="code">
+                            <h3><strong>Código de Inscripción:</strong>
+                                <?php echo $obj->uniqid;?>
+                            </h3>
+                        </div>
+
                     </div>
                 </div>
 
