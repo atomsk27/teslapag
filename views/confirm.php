@@ -43,7 +43,7 @@
         <div class="container">
                 <div class="jumbotron">
                     <h2 class='title-one titulo'>
-                        Confirmar inscripción
+                        Inscripción Confirmada
                     </h2>
                     <h3 class = 'DPersonales'>Datos Personales:</h3>
             <?php
@@ -57,7 +57,8 @@
                 if(!empty($_GET["id"])) {
                     $query = "SELECT * FROM " . $db_table_name . " WHERE uniqid = '" . $_GET["id"] . "'";
                     $consulta  = mysqli_query($db_conn, $query);
-                        while ($obj = mysqli_fetch_object($consulta)) {
+                    $obj = mysqli_fetch_object($consulta);
+                    if ( $obj->tipo == "estudiante") {
             ?>
             <div class="container gene">
                 <div class="container informacion">
@@ -128,7 +129,7 @@
                 </div>
                 <div class="container">
                     <div class="code">
-                        <h3><strong>Código de Inscripcion:</strong>
+                        <h3><strong>Código de Inscripción:</strong>
                             <?php echo $obj->uniqid;?>
                         </h3>
                     </div>
@@ -141,7 +142,64 @@
                 </div>
             </div>
             <?php
-                        }
+
+                }
+            elseif ($obj->tipo == 'docente') {
+
+            ?>
+                <div class="container gene">
+                    <div class="container informacion">
+                        <div class="col-sm-4">
+                            <h5><strong>Nombres:</strong>
+                                <?php echo $obj->nombres;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>Apellidos:</strong>
+                                <?php echo $obj->apellidos;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>E-mail:</strong>
+                                <?php echo $obj->email;?>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="container informacion">
+                        <div class="col-sm-4">
+                            <h5><strong>Colegio:</strong>
+                                <?php echo $obj->colegio;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>DNI:</strong>
+                                <?php echo $obj->dni;?>
+                            </h5>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5><strong>Número de Contacto:</strong>
+                                <?php echo $obj->celularPadre;?>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="code">
+                            <h3><strong>Código de Inscripción:</strong>
+                                <?php echo $obj->uniqid;?>
+                            </h3>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="col-sm-12">
+                        <a href="eventos.html" class="btn btn-default conf-btn">Nueva inscripción</a>
+                    </div>
+                </div>
+            <?php
+
+            }
                 }
                 }
                 mysqli_close($db_conn);

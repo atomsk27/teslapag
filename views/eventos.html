@@ -64,16 +64,34 @@
                 <div class="row eventos-sec">
                     <div class="col-sm-8" >
                         <div class="eventos-second">
-                            <h3>Nuevo Evento</h3>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias dignissimos velit sed non voluptatum perferendis accusamus, optio consequuntur laboriosam repellat harum voluptatem corporis, distinctio ad autem. Ad ipsa, nobis doloremque.</h5>
-                            <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos">Inscripciones</a>
+                            <h3>Desarrollando habilidades matemáticas con Scratch</h3>
+                            <h5>Curso dirigido para docentes.</h5>
+                            <ul>
+                              <li>
+                                <h5>
+                                <strong>Lugar: </strong>
+                                Colegio Emblemático María Auxiliadora - Puno</h5>
+                              </li>
+                              <li>
+                                <h5>
+                                <strong>Fecha: </strong>
+                                Sábado, 4 de noviembre </h5>
+                              </li>
+                              <li>
+                                <h5>
+                                <strong>Hora: </strong>
+                                14:30 Hs - 18:30 Hs UTC-5</h5>
+                              </li>
+                            </ul>
+                            <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos-docentes">Inscripciones</a>
                         </div>
 
                     </div>
-                    <div class="col-sm-3">
-                        <img src="../images/services/scratch.jpg" alt="Scratch" class="img-scratch">
+                    <div class="col-sm-4">
+                        <img src="../images/eventos/taller_scratch_4_nov-2017.jpg" alt="Scratch-Docentes" class="img-eventos">
                     </div>
                 </div>
+                <div class="horizontal-line"></div>
                 <div class="text-center">
                     <h3 class="title-one evn-past">Eventos Pasados</h3>
                 </div>
@@ -113,7 +131,7 @@
                                     <h2 class="text-center">Inscripciones</h2>
                             </div>
                             <div class="modal-body">
-                                <form action="../controller/registro.php" method="post" id='form'>
+                                <form action="../controller/registro.php?tipo=estudiante" method="post" id='form-estudiantes' name="form-estudiantes">
                                     <h3>Datos del participante</h3>
                                     <div class="row">
                                         <div class="form-group col-sm-6">
@@ -138,11 +156,11 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="edad">Edad</label>
-                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad' required>
+                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad'>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
-                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' required>
+                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' maxlength="8" required>
                                         </div>
                                     </div>
                                     <h3>Datos del padre o apoderado</h3>
@@ -163,7 +181,7 @@
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dniPadre">DNI</label>
-                                            <input type="number" class='form-control' id='dniPadre' placeholder="DNI Apoderado" name='dniPadre'>
+                                            <input type="number" class='form-control' id='dniPadre' placeholder="DNI Apoderado" name='dniPadre' maxlength="8">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -192,7 +210,7 @@
                                     <h2 class="text-center">Inscripciones Docentes</h2>
                             </div>
                             <div class="modal-body">
-                                <form action="../controller/registro.php" method="post" id='form'>
+                                <form action="../controller/registro.php?tipo=docente" method="post" id='form-docentes' name="form-docentes">
                                     <h3>Datos del participante</h3>
                                     <div class="row">
                                         <div class="form-group col-sm-6">
@@ -217,7 +235,7 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
-                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' required>
+                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' max=99999999 required>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="celularPadre">Celular</label>
@@ -228,7 +246,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <input type="submit" value='Enviar' id='enviar' class='btn-default btn this-btn' >
+                                <input type="submit" value='Enviar' id='enviar2' class='btn-default btn this-btn' >
                                 </form>
                             </div>
                         </div>
@@ -255,7 +273,6 @@
     <script type="text/javascript" src="../js/main.js"></script>
     <script type="text/javascript">
         function validarForm(){
-
             if (!document.getElementbyId('dni').value.lenght == 8 && !document.getElementbyId('dniPadre').value.lenght == 8) {
                 alert('DNI debe contener 8 dígitos');
             }
@@ -264,7 +281,7 @@
             }
         }
     </script>
-    <script language="JavaScript">
+    <script type="text/javaScript">
         function pregunta(){
             if (confirm('¿Estas seguro de enviar este formulario?')){
                document.tuformulario.submit()
