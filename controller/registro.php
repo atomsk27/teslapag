@@ -58,20 +58,28 @@
         $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `edad` , `dni` , `nomPadre` , `apePadre` , `emailPadre` , `dniPadre` , `celularPadre`, `tipo`, `activo`, `uniqid`)
         VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_edad . '", "' . $subs_dni . '", "' . $subs_nomPadre . '"
         , "' . $subs_apePadre . '", "' . $subs_emailPadre . '", "' . $subs_dniPadre . '", "' . $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio . '")';
+        mysqli_select_db($db_connection, $db_name);
+
+        $retry_value = mysqli_query($db_connection, $insert_value);
+
+        if (!$retry_value) {
+           die('Error: ' . mysqli_error($db_connection));
+        }
     }
-    else {
+    elseif ($tipo == 'docente'){
         $subs_tipo = 'docente';
         $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `dni`,`celularPadre`, `tipo`, `activo`, `uniqid`)
         VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_dni . '", "'. $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio . '")';
+        mysqli_select_db($db_connection, $db_name);
+
+        $retry_value = mysqli_query($db_connection, $insert_value);
+
+        if (!$retry_value) {
+           die('Error: ' . mysqli_error($db_connection));
+        }
     }
-
-
-    mysqli_select_db($db_connection, $db_name);
-
-    $retry_value = mysqli_query($db_connection, $insert_value);
-
-    if (!$retry_value) {
-       die('Error: ' . mysqli_error($db_connection));
+    else {
+      redirect('../');
     }
     $mensaje = 'Para confirmar tu inscripcion\n\n';
     $mensaje .= 'Active su inscripcion pulsando en el enlace: http://www.teslaeducationsteam.org/controller/activation.php?id='.$subs_aleatorio.'';
