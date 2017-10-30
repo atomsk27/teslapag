@@ -20,7 +20,10 @@
     $subs_dniPadre = utf8_decode($_POST['dniPadre']);
     $subs_celularPadre = utf8_decode($_POST['celularPadre']);
 
+    $subs_curso = utf8_decode($_POST['curso']);
+
     $subs_activo = 0;
+
     function uniqidReal($lenght = 6){
         if (function_exists("random_bytes")) {
             $bytes = random_bytes(ceil($lenght / 2));
@@ -55,9 +58,9 @@
     $tipo = $_GET['tipo'];
     if ($tipo == 'estudiante') {
         $subs_tipo = 'estudiante';
-        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `edad` , `dni` , `nomPadre` , `apePadre` , `emailPadre` , `dniPadre` , `celularPadre`, `tipo`, `activo`, `uniqid`)
+        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `edad` , `dni` , `nomPadre` , `apePadre` , `emailPadre` , `dniPadre` , `celularPadre`, `tipo`, `activo`, `uniqid`, `curso`)
         VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_edad . '", "' . $subs_dni . '", "' . $subs_nomPadre . '"
-        , "' . $subs_apePadre . '", "' . $subs_emailPadre . '", "' . $subs_dniPadre . '", "' . $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio . '")';
+        , "' . $subs_apePadre . '", "' . $subs_emailPadre . '", "' . $subs_dniPadre . '", "' . $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio . '", "' . $subs_curso . '")';
         mysqli_select_db($db_connection, $db_name);
 
         $retry_value = mysqli_query($db_connection, $insert_value);
@@ -68,8 +71,8 @@
     }
     elseif ($tipo == 'docente'){
         $subs_tipo = 'docente';
-        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `dni`,`celularPadre`, `tipo`, `activo`, `uniqid`)
-        VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_dni . '", "'. $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio . '")';
+        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `dni`,`celularPadre`, `tipo`, `activo`, `uniqid`, `curso`)
+        VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_dni . '", "'. $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio . '" , "' . $subs_curso . '")';
         mysqli_select_db($db_connection, $db_name);
 
         $retry_value = mysqli_query($db_connection, $insert_value);
