@@ -64,16 +64,34 @@
                 <div class="row eventos-sec">
                     <div class="col-sm-8" >
                         <div class="eventos-second">
-                            <h3>Mejorando habilidades matemáticas utilizando Scratch</h3>
+                            <h3>Desarrollando habilidades matemáticas con Scratch</h3>
                             <h5>Curso dirigido para docentes.</h5>
+                            <ul>
+                              <li>
+                                <h5>
+                                <strong>Lugar: </strong>
+                                Colegio Emblemático María Auxiliadora - Puno</h5>
+                              </li>
+                              <li>
+                                <h5>
+                                <strong>Fecha: </strong>
+                                Sábado, 4 de noviembre </h5>
+                              </li>
+                              <li>
+                                <h5>
+                                <strong>Hora: </strong>
+                                14:30 Hs - 18:30 Hs UTC-5</h5>
+                              </li>
+                            </ul>
                             <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos-docentes">Inscripciones</a>
                         </div>
 
                     </div>
-                    <div class="col-sm-3">
-                        <img src="../images/services/scratch.jpg" alt="Scratch" class="img-scratch">
+                    <div class="col-sm-4">
+                        <img src="../images/eventos/taller_scratch_4_nov-2017.jpg" alt="Scratch-Docentes" class="img-eventos">
                     </div>
                 </div>
+                <div class="horizontal-line"></div>
                 <div class="text-center">
                     <h3 class="title-one evn-past">Eventos Pasados</h3>
                 </div>
@@ -142,7 +160,7 @@
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
-                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' required>
+                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' maxlength="8" required>
                                         </div>
                                     </div>
                                     <h3>Datos del padre o apoderado</h3>
@@ -163,7 +181,7 @@
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dniPadre">DNI</label>
-                                            <input type="number" class='form-control' id='dniPadre' placeholder="DNI Apoderado" name='dniPadre'>
+                                            <input type="number" class='form-control' id='dniPadre' placeholder="DNI Apoderado" name='dniPadre' maxlength="8">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -193,11 +211,12 @@
                             </div>
                             <div class="modal-body">
                                 <form action="../controller/registro.php?tipo=docente" method="post" id='form-docentes' name="form-docentes">
+                                    <input type="hidden" name="curso" value="scratch">
                                     <h3>Datos del participante</h3>
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="nombres">Nombres</label>
-                                            <input type="text" class='form-control' id='nombres' placeholder="Nombres" name='nombres'>
+                                            <input type="text" class='form-control' id='nombres' placeholder="Nombres" name='nombres' required>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="apellidos">Apellidos</label>
@@ -217,7 +236,7 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
-                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' required>
+                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' max=99999999 required>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="celularPadre">Celular</label>
