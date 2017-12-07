@@ -3,25 +3,30 @@
     {
         protected $permissions;
 
+        private static $db;
+        
         protected function __construct(){
             $this->$permissions = array();
+        }
+        public static function setDatabase($db){
+            self::$db = $db;
         }
 
         public static function getRolePerms($idRol){
             $role = new Role();
-            $sql = 'SELECT P.descripcion FROM RolTienePermiso RTP
+            $stm = self::$db->prepare('SELECT P.descripcion FROM RolTienePermiso RTP
                     JOIN Permiso P ON RTP.idPermiso = P.idPermiso
-                    WHERE RTP.idRol = :idRol';
-            $sth = $GLOBALS['DB']->prepare($sql);
-            $sth->execute(array(':idRol'=>$idRol));
+                    WHERE RTP.idRol = :idRol');
 
-            while($row = $sth->fetch(PDO::FETCH_ASSOC)){
+            $stm->execute(array(':idRol'=>$idRol));
+
+            while($row = $stm->fetch(PDO::FETCH_ASSOC)){
                 $role->permissions[$row['perm_desc']] = true;
             }
             return $role;
         }
-        public function hasPerm($permissions){
-            return isset ($this->permissions[$permissions]);
+        public function hasPerm($permission){
+            return isset ($this->permissions[$permission]);
         }
     }
  ?>
