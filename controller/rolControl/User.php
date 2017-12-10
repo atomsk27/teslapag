@@ -24,8 +24,18 @@
 
         while ($row = $fetchRoles->fetch(PDO::FETCH_ASSOC))
         {
-            $this->userRoles[]
+            $this->userRoles[$row['nombreRol']] = Role::getRolePermissions($row['idRol']);
         }
+    }
+    public function hasPermission($permission)
+    {
+        foreach ($this->userRoles as $role) {
+            if($role->hasPermission($permission))
+            {
+                return true;
+            }
+        }
+        return false;
     }
     }
  ?>
