@@ -17,7 +17,7 @@ $(document).ready(function(){
 		  	type: 'warning',
 		  	showCancelButton: true,
 		  	confirmButtonColor: '#03A9F4',
-		  	cancelButtonColor: '#F44336',
+			  	cancelButtonColor: '#F44336',
 		  	confirmButtonText: '<i class="zmdi zmdi-run"></i> Yes, Exit!',
 		  	cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> No, Cancel!'
 		}).then(function () {

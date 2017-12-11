@@ -73,8 +73,17 @@ body, html{
 	background-color: rgba(0, 0, 0, .7);
 }
 .logInForm p,
+.logInForm input,
 .logInForm label{
 	color: #FFF;
+}
+.logo{
+    background-color: #fff;
+    width: 100%;
+    height: auto;
+    padding: inherit;
+    margin-left: 0%;
+    margin-bottom: 20px;
 }
 /*============ Partes del dashboard*/
 .dashboard-sideBar,
@@ -169,7 +178,7 @@ body, html{
 }
 .dashboard-sideBar-Menu > li > a > i.zmdi-caret-down{
 	line-height: 50px;
-	transition: all .3s ease-in-out; 
+	transition: all .3s ease-in-out;
 }
 .dashboard-sideBar-Menu > li > a{
 	padding: 0 15px;

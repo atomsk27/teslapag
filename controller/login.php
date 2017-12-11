@@ -21,7 +21,7 @@
     if($result->num_rows > 0)
     {}
         $row = $result->fetch_array(MYSQLI_ASSOC);
-        
+
         //corregir mysql a password_hash
 
         if(password_verify($password, $row['password'])){
@@ -31,13 +31,14 @@
             $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 
             echo 'Bienvenido' . $_SESSION['username'];
-            echo "<br><br><a href='../dashboard/home.html'>Panel de control</a>";
+            header('Location: ../dashboard/home.html');
+
         }
         else {
             echo 'Username o pass incorrectos';
-
-            echo "<br><br><a href='../dashboard/'>Volver a intentarlo</a>";
+            header('Location: ../dashboard/');
         }
+
 
     mysqli_close($conexion);
 
