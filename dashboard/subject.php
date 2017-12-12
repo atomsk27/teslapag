@@ -1,3 +1,15 @@
+<?php
+	session_start();
+
+	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+
+	}
+	else {
+		echo "Vista solo para Usuarios registrados";
+		header('Location: ../dashboard/');
+		exit;
+	}
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +49,7 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="home.html">
+					<a href="home.php">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Home
 					</a>
 				</li>
@@ -47,10 +59,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="period.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Reservacion</a>
+							<a href="period.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Reservacion</a>
 						</li>
 						<li>
-							<a href="subject.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuartos</a>
+							<a href="subject.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuartos</a>
 						</li>
 					</ul>
 				</li>
@@ -60,13 +72,13 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="admin.html"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
+							<a href="admin.php"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
 						</li>
 						<li>
-							<a href="personal.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Personal</a>
-						</li>						
+							<a href="personal.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Personal</a>
+						</li>
 						<li>
-							<a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Clientes</a>
+							<a href="representative.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Clientes</a>
 						</li>
 					</ul>
 				</li>
@@ -76,10 +88,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="registration.html"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registro</a>
+							<a href="registration.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registro</a>
 						</li>
 						<li>
-							<a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Pago</a>
+							<a href="payments.php"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Pago</a>
 						</li>
 					</ul>
 				</li>
@@ -89,7 +101,7 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="inventario.html"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Inventario</a>
+							<a href="inventario.php"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Inventario</a>
 						</li>
 					</ul>
 				</li>

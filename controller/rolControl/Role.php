@@ -4,7 +4,7 @@
         protected $permissions;
 
         private static $db;
-        
+
         protected function __construct(){
             $this->$permissions = array();
         }
@@ -17,7 +17,7 @@
             $stm = self::$db->prepare('SELECT P.descripcion FROM RolTienePermiso RTP
                     JOIN Permiso P ON RTP.idPermiso = P.idPermiso
                     WHERE RTP.idRol = :idRol');
-
+                //Usar vista creada
             $stm->execute(array(':idRol'=>$idRol));
 
             while($row = $stm->fetch(PDO::FETCH_ASSOC)){

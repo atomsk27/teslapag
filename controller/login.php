@@ -14,7 +14,7 @@
     $username = $_POST['UserEmail'];
     $password = $_POST['UserPass'];
 
-    $query = 'SELECT user, password FROM Usuario WHERE user = "'.$username.'"';
+    $query = 'SELECT usr user, psw password FROM vistaUsuario WHERE usr = "'.$username.'"';
 
     $result = $conexion->query($query);
 
@@ -30,11 +30,14 @@
             $_SESSION['start'] = time();
             $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
 
+            $_SESSION['success'] =  "Correct";
+
             echo 'Bienvenido' . $_SESSION['username'];
-            header('Location: ../dashboard/home.html');
+            header('Location: ../dashboard/home.php');
 
         }
         else {
+            $_SESSION['failure'] =  "Usuario o contraseña incorrectos";
             echo 'Username o pass incorrectos';
             header('Location: ../dashboard/');
         }

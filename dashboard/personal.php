@@ -1,7 +1,19 @@
+<?php
+	session_start();
+
+	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+
+	}
+	else {
+		echo "Vista solo para Usuarios registrados";
+		header('Location: ../dashboard/');
+		exit;
+	}
+ ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Payments</title>
+	<title>Personal</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="./css/main.css">
@@ -37,7 +49,7 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
-					<a href="home.html">
+					<a href="home.php">
 						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Home
 					</a>
 				</li>
@@ -47,10 +59,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="period.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Reservacion</a>
+							<a href="period.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Reservacion</a>
 						</li>
 						<li>
-							<a href="subject.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuartos</a>
+							<a href="subject.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuartos</a>
 						</li>
 					</ul>
 				</li>
@@ -60,13 +72,13 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="admin.html"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
+							<a href="admin.php"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
 						</li>
 						<li>
-							<a href="personal.html"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Personal</a>
-						</li>						
+							<a href="personal.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Personal</a>
+						</li>
 						<li>
-							<a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Clientes</a>
+							<a href="representative.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Clientes</a>
 						</li>
 					</ul>
 				</li>
@@ -76,10 +88,10 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="registration.html"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registro</a>
+							<a href="registration.php"><i class="zmdi zmdi-money-box zmdi-hc-fw"></i> Registro</a>
 						</li>
 						<li>
-							<a href="payments.html"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Pago</a>
+							<a href="payments.php"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Pago</a>
 						</li>
 					</ul>
 				</li>
@@ -89,7 +101,7 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
-							<a href="inventario.html"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Inventario</a>
+							<a href="inventario.php"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Inventario</a>
 						</li>
 					</ul>
 				</li>
@@ -126,7 +138,7 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-money zmdi-hc-fw"></i> Payments <small>Payments</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Users <small>Personal</small></h1>
 			</div>
 			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
 		</div>
@@ -143,22 +155,37 @@
 								<div class="row">
 									<div class="col-xs-12 col-md-10 col-md-offset-1">
 									    <form action="">
+									    	<div class="form-group label-floating">
+											  <label class="control-label">Name</label>
+											  <input class="form-control" type="text">
+											</div>
 											<div class="form-group label-floating">
-											  <label class="control-label">Cliente Code</label>
+											  <label class="control-label">Last Name</label>
+											  <input class="form-control" type="text">
+											</div>
+											<div class="form-group label-floating">
+											  <label class="control-label">Address</label>
 											  <textarea class="form-control"></textarea>
 											</div>
 											<div class="form-group label-floating">
-											  <label class="control-label">Amount</label>
+											  <label class="control-label">Email</label>
 											  <input class="form-control" type="text">
 											</div>
 											<div class="form-group label-floating">
-											  <label class="control-label">Subscription</label>
+											  <label class="control-label">Phone</label>
+											  <input class="form-control" type="text">
+											</div>
+											<div class="form-group label-floating">
+											  <label class="control-label">Occupation</label>
 											  <input class="form-control" type="text">
 											</div>
 											<div class="form-group">
-											  <label class="control-label">Date</label>
-											  <input class="form-control" type="date">
-											</div>
+										        <label class="control-label">Gender</label>
+										        <select class="form-control">
+										          <option>Male</option>
+										          <option>Female</option>
+										        </select>
+										    </div>
 										    <p class="text-center">
 										    	<button href="#!" class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Save</button>
 										    </p>
@@ -173,11 +200,13 @@
 									<thead>
 										<tr>
 											<th class="text-center">#</th>
-											<th class="text-center">Cliente</th>
-											<th class="text-center">Amount</th>
-											<th class="text-center">Subscription</th>
-											<th class="text-center">Pending</th>
-											<th class="text-center">Date</th>
+											<th class="text-center">Name</th>
+											<th class="text-center">Last Name</th>
+											<th class="text-center">Address</th>
+											<th class="text-center">Email</th>
+											<th class="text-center">Phone</th>
+											<th class="text-center">Occupation</th>
+											<th class="text-center">Gender</th>
 											<th class="text-center">Update</th>
 											<th class="text-center">Delete</th>
 										</tr>
@@ -185,41 +214,61 @@
 									<tbody>
 										<tr>
 											<td>1</td>
-											<td>Carlos Alfaro</td>
-											<td>$40</td>
-											<td>$40</td>
-											<td>$0</td>
-											<td>01/01/2017</td>
+											<td>Carlos</td>
+											<td>Alfaro</td>
+											<td>El Salvador</td>
+											<td>carlos@gmail.com</td>
+											<td>+50312345678</td>
+											<td>Web Developer</td>
+											<td>Male</td>
 											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
 											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>
 										<tr>
 											<td>2</td>
-											<td>Claudia Rodriguez</td>
-											<td>$40</td>
-											<td>$40</td>
-											<td>$0</td>
-											<td>01/01/2017</td>
+											<td>Alicia</td>
+											<td>Melendez</td>
+											<td>El Salvador</td>
+											<td>alicia@gmail.com</td>
+											<td>+50312345678</td>
+											<td>Social Work</td>
+											<td>Female</td>
 											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
 											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>
 										<tr>
-											<td>1</td>
-											<td>Alicia Melendez</td>
-											<td>$40</td>
-											<td>$40</td>
-											<td>$0</td>
-											<td>01/01/2017</td>
+											<td>3</td>
+											<td>Sarai</td>
+											<td>Mercado</td>
+											<td>El Salvador</td>
+											<td>sarai@gmail.com</td>
+											<td>+50312345678</td>
+											<td>Lawyer</td>
+											<td>Female</td>
 											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
 											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>
 										<tr>
-											<td>1</td>
-											<td>Sarai Mercado</td>
-											<td>$40</td>
-											<td>$40</td>
-											<td>$0</td>
-											<td>01/01/2017</td>
+											<td>4</td>
+											<td>Alba</td>
+											<td>Bonilla</td>
+											<td>El Salvador</td>
+											<td>alba@gmail.com</td>
+											<td>+50312345678</td>
+											<td>Designer</td>
+											<td>Female</td>
+											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td>Claudia</td>
+											<td>Rodriguez</td>
+											<td>El Salvador</td>
+											<td>claudia@gmail.com</td>
+											<td>+50312345678</td>
+											<td>Lawyer</td>
+											<td>Female</td>
 											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
 											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
 										</tr>

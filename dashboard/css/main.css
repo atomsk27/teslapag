@@ -58,6 +58,11 @@ body, html{
 .text-titles{
 	font-family: 'RobotoCondensedLight'
 }
+.failure{
+    text-align: center;
+    position: relative;
+    color: red;
+}
 /*============ LogIn*/
 .logInForm{
 	position: absolute;
