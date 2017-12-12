@@ -36,13 +36,17 @@
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
 			<div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-				company <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+				TESLA Education <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
 			</div>
 			<!-- SideBar User info -->
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
 					<img src="./assets/img/avatar.jpg" alt="UserIcon">
-					<figcaption class="text-center text-titles">User Name</figcaption>
+					<figcaption class="text-center text-titles" style="text-transform:capitalize;">
+						<?php
+							echo $_SESSION['username'];
+						 ?>
+					</figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
