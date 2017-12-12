@@ -15,7 +15,7 @@
 	session_destroy();
 
 	echo "Su sesion a terminado,
-	<a href='login.php'>Necesita Hacer Login</a>";
+	<a href='index.php'>Necesita Hacer Login</a>";
 	exit;
 	}
 
