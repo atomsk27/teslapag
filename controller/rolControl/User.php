@@ -1,8 +1,8 @@
 <?php
     class User
     {
-        private $userRoles = array();
         private static $db;
+        private $userRoles = array();
 
         public static function setDatabase($db)
         {
@@ -45,15 +45,14 @@
             {
                 echo "esta en el whiel <br>";
                 $userRoles[$row['nombreRol']] = Role::getRolePerms($row['idRol'], $db);
-                echo "pasoUSerroles<br>";
-
+                echo "<br>pasoUSerroles<br>";
             }
         }
         public function hasPermission($permission)
         {
             echo "<br>User.hasPermission working";
-            foreach ($userRoles as $role) {
-                echo "string";
+            foreach (self::$userRoles as $role) {
+                echo "<br>foreach <br>";
                 if($role->hasPerm($permission))
                 {
                     return true;

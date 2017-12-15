@@ -16,6 +16,7 @@
         $user = new User($_SESSION['user_id'], $conexion);
 
         echo "salio?";
+        
         if($user->hasPermission('UpdateCursos'))
         {
             echo "admin=update";

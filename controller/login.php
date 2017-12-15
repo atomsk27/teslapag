@@ -2,7 +2,6 @@
     session_start();
     require_once 'connection.php';
 
-
     //SESSION CONTROL
     $conexion = new mysqli($db_host, $db_user, $db_password, $db_name);
 
