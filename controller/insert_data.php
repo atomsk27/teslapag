@@ -54,13 +54,13 @@
         if($result_persona)
         {
             $conexion->commit();
-            if ($idRol = 1) {
+            if ($idRol == 1) {
                 header('Location: ../dashboard/admin.php');
             }
-            elseif ($idRol = 2) {
+            elseif ($idRol == 2) {
                 header('Location: ../dashboard/facilitador.php');
             }
-            elseif ($idRol = 3) {
+            elseif ($idRol == 3) {
                 header('Location: ../dashboard/standuser.php');
             }
         }

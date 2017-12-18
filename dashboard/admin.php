@@ -68,7 +68,7 @@
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-xs-12 col-md-10 col-md-offset-1">
-									    <form action="../controller/insert_data.php?idRol=<?php echo $idRol?>" method="post">
+									    <form action="../controller/insert_data.php?idRol=<?php echo $idRol;?>" method="post">
 											<div class="form-group label-floating">
 											  <label class="control-label">Usuario</label>
 											  <input class="form-control" type="text" name='user' required>
@@ -145,28 +145,28 @@
 									<tbody>
 										<tr>
 											<td>
-												<?php echo $count ?>
+												<?php echo $count; ?>
 											</td>
 											<td>
-												<?php echo $row['nombrePersona'] ?>
+												<?php echo $row['nombrePersona']; ?>
 											</td>
 											<td>
-												<?php echo $row['apellidoPaterno'] ?>
+												<?php echo $row['apellidoPaterno']; ?>
 											</td>
 											<td>
-												<?php echo $row['apellidoMaterno'] ?>
+												<?php echo $row['apellidoMaterno']; ?>
 											</td>
 											<td>
-												<?php echo $row['dni'] ?>
+												<?php echo $row['dni']; ?>
 											</td>
 											<td>
-												<?php echo $row['email'] ?>
+												<?php echo $row['email']; ?>
 											</td>
 											<td>
-												<?php echo $row['numero'] ?>
+												<?php echo $row['numero']; ?>
 											</td>
 											<td>
-												<?php echo $row['fechaNacimiento'] ?>
+												<?php echo $row['fechaNacimiento']; ?>
 											</td>
 											<!--
 												<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
