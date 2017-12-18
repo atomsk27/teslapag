@@ -1,21 +1,15 @@
 <?php
-	session_start();
-
-	if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
-
-	}
-	else {
-		echo "Vista solo para Usuarios registrados";
-		header('Location: ../dashboard/');
-		exit;
-	}
- ?>
+	require_once 'sessionControl.php';
+	$idRol = 1;
+	require_once '../controller/vistaPersona.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Admin</title>
+	<title>Usuarios - Administradores</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="../images/ico/favicon1.png">
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -56,6 +50,11 @@
 			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Users <small>Admin</small></h1>
 			</div>
 			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
+			<?php
+				if (!empty($_GET['err'])) {
+					echo "<p class='lead'>Problema en el ".$_GET['err']."</p>";
+				}
+			 ?>
 		</div>
 		<div class="container-fluid">
 			<div class="row">
@@ -69,27 +68,44 @@
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-xs-12 col-md-10 col-md-offset-1">
-									    <form action="">
+									    <form action="../controller/insert_data.php?idRol=<?php echo $idRol?>" method="post">
+											<div class="form-group label-floating">
+											  <label class="control-label">Usuario</label>
+											  <input class="form-control" type="text" name='user' required>
+											</div>
+											<div class="form-group label-floating">
+											  <label class="control-label">Password</label>
+											  <input class="form-control" type="password" name='password' required>
+											</div>
 									    	<div class="form-group label-floating">
-											  <label class="control-label">Name</label>
-											  <input class="form-control" type="text">
+											  <label class="control-label">Nombres</label>
+											  <input class="form-control" type="text" name='nombrePersona'>
 											</div>
 											<div class="form-group label-floating">
-											  <label class="control-label">Last Name</label>
-											  <input class="form-control" type="text">
+											  <label class="control-label">Apellido Paterno</label>
+											  <input class="form-control" type="text" name = 'apellidoPaterno'>
 											</div>
 											<div class="form-group label-floating">
-											  <label class="control-label">Address</label>
-											  <textarea class="form-control"></textarea>
+											  <label class="control-label">Apellido Materno</label>
+											  <input class="form-control" type="text" name="apellidoMaterno">
+											</div>
+											<div class="form-group label-floating">
+											  <label class="control-label">DNI</label>
+											  <input class='form-control' type="number" min="10000000" max="99999999" name="dni">
 											</div>
 											<div class="form-group label-floating">
 											  <label class="control-label">Email</label>
-											  <input class="form-control" type="text">
+											  <input class="form-control" type="email" name="email">
 											</div>
 											<div class="form-group label-floating">
-											  <label class="control-label">Phone</label>
-											  <input class="form-control" type="text">
+											  <label class="">Fecha Nacimiento</label>
+											  <input class="form-control" type="date" name="fechaNacimiento">
 											</div>
+											<div class="form-group label-floating">
+											  <label class="control-label">Telefono</label>
+											  <input class="form-control" type="number" name="numero">
+											</div>
+											<!--
 											<div class="form-group">
 										      <label class="control-label">Photo</label>
 										      <div>
@@ -97,6 +113,7 @@
 										        <input type="file" >
 										      </div>
 										    </div>
+											-->
 										    <p class="text-center">
 										    	<button href="#!" class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Save</button>
 										    </p>
@@ -111,66 +128,62 @@
 									<thead>
 										<tr>
 											<th class="text-center">#</th>
-											<th class="text-center">Name</th>
-											<th class="text-center">Last Name</th>
-											<th class="text-center">Address</th>
+											<th class="text-center">Nombres</th>
+											<th class="text-center">Apellido Paterno</th>
+											<th class="text-center">Apellido Materno</th>
+											<th class="text-center">DNI</th>
 											<th class="text-center">Email</th>
 											<th class="text-center">Phone</th>
-											<th class="text-center">Update</th>
-											<th class="text-center">Delete</th>
+											<th class="text-center">Fecha Nacimiento</th>
 										</tr>
 									</thead>
+									<?php
+									while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+								        $count++;
+
+									?>
 									<tbody>
 										<tr>
-											<td>1</td>
-											<td>Carlos</td>
-											<td>Alfaro</td>
-											<td>El Salvador</td>
-											<td>carlos@gmail.com</td>
-											<td>+50312345678</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>Alicia</td>
-											<td>Melendez</td>
-											<td>El Salvador</td>
-											<td>alicia@gmail.com</td>
-											<td>+50312345678</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Sarai</td>
-											<td>Lopez</td>
-											<td>El Salvador</td>
-											<td>sarai@gmail.com</td>
-											<td>+50312345678</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>Alba</td>
-											<td>Bonilla</td>
-											<td>El Salvador</td>
-											<td>alba@gmail.com</td>
-											<td>+50312345678</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+											<td>
+												<?php echo $count ?>
+											</td>
+											<td>
+												<?php echo $row['nombrePersona'] ?>
+											</td>
+											<td>
+												<?php echo $row['apellidoPaterno'] ?>
+											</td>
+											<td>
+												<?php echo $row['apellidoMaterno'] ?>
+											</td>
+											<td>
+												<?php echo $row['dni'] ?>
+											</td>
+											<td>
+												<?php echo $row['email'] ?>
+											</td>
+											<td>
+												<?php echo $row['numero'] ?>
+											</td>
+											<td>
+												<?php echo $row['fechaNacimiento'] ?>
+											</td>
+											<!--
+												<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+												<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+											-->
 										</tr>
 									</tbody>
+									<?php }  ?>
 								</table>
 								<ul class="pagination pagination-sm">
 								  	<li class="disabled"><a href="#!">«</a></li>
 								  	<li class="active"><a href="#!">1</a></li>
-								  	<li><a href="#!">2</a></li>
-								  	<li><a href="#!">3</a></li>
-								  	<li><a href="#!">4</a></li>
-								  	<li><a href="#!">5</a></li>
-								  	<li><a href="#!">»</a></li>
+								  	<li class="disabled"><a href="#!">2</a></li>
+								  	<li class="disabled"><a href="#!">3</a></li>
+								  	<li class="disabled"><a href="#!">4</a></li>
+								  	<li class="disabled"><a href="#!">5</a></li>
+								  	<li class="disabled"><a href="#!">»</a></li>
 								</ul>
 							</div>
 					  	</div>

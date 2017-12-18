@@ -17,10 +17,8 @@
     $result = $conexion->query($query);
 
     if($result->num_rows > 0)
-    {}
+    {}  
         $row = $result->fetch_array(MYSQLI_ASSOC);
-
-        //corregir mysql a password_hash
 
         if(password_verify($password, $row['password'])){
             $_SESSION['loggedin'] = true;

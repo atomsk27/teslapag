@@ -1,13 +1,13 @@
 <?php
 	require_once 'sessionControl.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Inicio</title>
+	<title>Home - TESLA Education</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="shortcut icon" href="../images/ico/favicon1.png">
 	<link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -44,7 +44,7 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles">Página de Inicio <small>Usuarios</small></h1>
+			  <h1 class="text-titles">Página de Inicio <small>Administrador</small></h1>
 			</div>
 		</div>
 		<div class="full-box text-center" style="padding: 30px 10px;">
@@ -59,7 +59,7 @@
 					<p class="full-box">
 						<?php echo $num_admin->num_admin; ?>
 					</p>
-					<a href="#"><small>Register</small></a>
+					<a href="admin.php"><small>Register</small></a>
 				</div>
 			</article>
 			<article class="full-box tile">
@@ -73,7 +73,7 @@
 					<p class="full-box">
 						<?php echo $num_fac->num_fac; ?>
 					</p>
-					<a href="#"><small>Register</small></a>
+					<a href="facilitador.php"><small>Register</small></a>
 				</div>
 			</article>
 
@@ -88,7 +88,7 @@
 					<p class="full-box">
 						<?php echo $num_user->num_user; ?>
 					</p>
-					<a href="#"><small>Register</small></a>
+					<a href="standuser.php"><small>Register</small></a>
 				</div>
 			</article>
 		</div>

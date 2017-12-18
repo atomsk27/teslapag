@@ -3,7 +3,12 @@
     <div class="full-box dashboard-sideBar-ct">
         <!--SideBar Title -->
         <div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-            TESLA Education <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+            <img src="../images/Logo_Index.png" alt="TESLA Education" class="logo_sidebar">
+            <!--
+                TESLA Education <i class="zmdi zmdi-close btn-menu-dashboard visible-xs">
+
+                </i>
+            -->
         </div>
         <!-- SideBar User info -->
         <div class="full-box dashboard-sideBar-UserInfo">
@@ -40,14 +45,14 @@
             </li>
             <li>
                 <a href="#!" class="btn-sideBar-SubMenu">
-                    <i class="zmdi zmdi-case zmdi-hc-fw"></i> Administration <i class="zmdi zmdi-caret-down pull-right"></i>
+                    <i class="zmdi zmdi-case zmdi-hc-fw"></i> Administración <i class="zmdi zmdi-caret-down pull-right"></i>
                 </a>
                 <ul class="list-unstyled full-box">
                     <li>
-                        <a href="period.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Reservacion</a>
+                        <a href="cursos.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Cursos</a>
                     </li>
                     <li>
-                        <a href="subject.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Cuartos</a>
+                        <a href="eventos.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Eventos</a>
                     </li>
                 </ul>
             </li>
@@ -60,16 +65,16 @@
                         <a href="admin.php"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
                     </li>
                     <li>
-                        <a href="personal.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Personal</a>
+                        <a href="facilitador.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Facilitador</a>
                     </li>
                     <li>
-                        <a href="representative.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Clientes</a>
+                        <a href="standuser.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Usuario Regular</a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a href="#!" class="btn-sideBar-SubMenu">
-                    <i class="zmdi zmdi-card zmdi-hc-fw"></i> Pagos <i class="zmdi zmdi-caret-down pull-right"></i>
+                    <i class="zmdi zmdi-card zmdi-hc-fw "></i> Pagos <i class="zmdi zmdi-caret-down pull-right"></i>
                 </a>
                 <ul class="list-unstyled full-box">
                     <li>

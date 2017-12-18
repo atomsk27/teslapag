@@ -1,5 +1,4 @@
 <?php
-    session_start();
     require_once '../controller/users.php';
 
     if (isset($_SESSION['loggedin'] ) && $_SESSION['loggedin'] == true ) {
