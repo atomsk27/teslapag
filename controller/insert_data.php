@@ -8,17 +8,69 @@
     }
     $conexion->autocommit(FALSE);
 
-    $user = $_POST['user'];
+    if (isset($_POST['user'])) {
+        $user = $_POST['user'];
+    }
+    else {
+        $user = 'NULL';
+    }
     $password = $_POST['password'];
     $idRol = $_GET['idRol'];
-    $nombrePersona = $_POST['nombrePersona'];
-    $apellidoPaterno = $_POST['apellidoPaterno'];
-    $apellidoMaterno = $_POST['apellidoMaterno'];
+    if (isset($_POST['nombrePersona'])) {
+        $nombrePersona = $_POST['nombrePersona'];
+    }
+    else {
+        $nombrePersona = 'NULL';
+    }
+    if (isset($_POST['apellidoPaterno'])) {
+        $apellidoPaterno = $_POST['apellidoPaterno'];
+    }
+    else {
+        $apellidoPaterno = 'NULL';
+    }
+    if (isset($_POST['apellidoMaterno'])) {
+        $apellidoMaterno = $_POST['apellidoMaterno'];
+    }
+    else {
+        $apellidoMaterno = 'NULL';
+    }
     $dni = $_POST['dni'];
-    $email = $_POST['email'];
-    $numero = $_POST['numero'];
-    $fechaNacimiento = $_POST['fechaNacimiento'];
-
+    if (isset($_POST['email'])) {
+        $email = $_POST['email'];
+    }
+    else {
+        $email = 'NULL';
+    }
+    if (isset($_POST['numero'])) {
+        $numero = $_POST['numero'];
+    }
+    else {
+        $numero = 'NULL';
+    }
+    if (isset($_POST['numeroOpcional'])) {
+        $numeroOpcional = $_POST['numeroOpcional'];
+    }
+    else {
+        $numeroOpcional = 'NULL';
+    }
+    if (isset($_POST['fechaNacimiento'])) {
+        $fechaNacimiento = $_POST['fechaNacimiento'];
+    }
+    else {
+        $fechaNacimiento =  '1000-01-01';
+    }
+    if (isset($_POST['sexo'])) {
+        $sexo = $_POST['sexo'];
+    }
+    else {
+        $sexo = 0;
+    }
+    if (isset($_POST['direccion'])) {
+        $direccion = $_POST['direccion'];
+    }
+    else {
+        $direccion = 'NULL';
+    }
     $subs_activo = 1;
     function uniqidReal($lenght = 6){
         if (function_exists("random_bytes")) {
@@ -44,8 +96,9 @@
 
         if ($row_u = $RES_CON->fetch_array(MYSQLI_ASSOC)) {
 
-            $sql_persona = 'INSERT INTO Persona(nombrePersona, apellidoPaterno, apellidoMaterno, dni, email, numero, fechaNacimiento, activo, uniqid, idUsuario)
-                            VALUES ("'.$nombrePersona.'", "'.$apellidoPaterno.'", "'.$apellidoMaterno.'", "'.$dni.'", "'.$email.'", "'.$numero.'", "'.$fechaNacimiento.'", "'.$subs_activo.'", "'.$subs_aleatorio.'", "'.$row_u['idUsuario'].'")';
+            $sql_persona = 'INSERT INTO Persona(nombrePersona, apellidoPaterno, apellidoMaterno, dni, email, numero, numeroOpcional, fechaNacimiento,sexo, direccion,  activo, uniqid, idUsuario)
+                            VALUES ("'.$nombrePersona.'", "'.$apellidoPaterno.'", "'.$apellidoMaterno.'", "'.$dni.'", "'.$email.'", "'.$numero.'", "'.$numeroOpcional.'", "'.$fechaNacimiento.'", "'.$sexo.'", "'.$direccion.'", "'.$subs_activo.'", "'.$subs_aleatorio.'",
+                            "'.$row_u['idUsuario'].'")';
         }
         else {
             $conexion->rollback();
@@ -54,15 +107,7 @@
         if($result_persona)
         {
             $conexion->commit();
-            if ($idRol == 1) {
-                header('Location: ../dashboard/admin.php');
-            }
-            elseif ($idRol == 2) {
-                header('Location: ../dashboard/facilitador.php');
-            }
-            elseif ($idRol == 3) {
-                header('Location: ../dashboard/standuser.php');
-            }
+            header('Location: ../dashboard/admin.php');
         }
         else {
             $conexion->rollback();

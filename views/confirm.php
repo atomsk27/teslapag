@@ -95,36 +95,11 @@
                         </h5>
                     </div>
                 </div>
-            </div>
-            <h3 class='DPersonales'>Datos del Apoderado:</h3>
-            <div class="container gene">
-                <div class="container informacion">
-                    <div class="col-sm-4">
-                        <h5><strong>Nombres del Apoderado:</strong>
-                            <?php echo $obj->nomPadre;?>
-                        </h5>
-                    </div>
-                    <div class="col-sm-4">
-                        <h5><strong>Apellidos del Apoderado:</strong>
-                            <?php echo $obj->apePadre;?>
-                        </h5>
-                    </div>
-                    <div class="col-sm-4">
-                        <h5><strong>E-mail del Apoderado:</strong>
-                            <?php echo $obj->emailPadre;?>
-                        </h5>
-                    </div>
-                </div>
-                <div class="container informacion">
-                    <div class="col-sm-4">
-                        <h5><strong>DNI Apoderado:</strong>
-                            <?php echo $obj->dniPadre;?>
-                        </h5>
-                    </div>
-                    <div class="col-sm-4">
-                        <h5><strong>Número de Contacto:</strong>
-                            <?php echo $obj->celularPadre;?>
-                        </h5>
+                <div class="container">
+                    <div class="code">
+                        <h3><strong>Curso:</strong>
+                            <?php echo $obj->curso;?>
+                        </h3>
                     </div>
                 </div>
                 <div class="container">
@@ -133,9 +108,9 @@
                             <?php echo $obj->uniqid;?>
                         </h3>
                     </div>
-
                 </div>
             </div>
+
             <div class="container">
                 <div class="col-sm-12">
                     <a href="eventos.html" class="btn btn-default conf-btn">Nueva inscripción</a>
@@ -182,14 +157,7 @@
                             </h5>
                         </div>
                     </div>
-                    <div class="container">
-                        <div class="code">
-                            <h3><strong>Código de Inscripción:</strong>
-                                <?php echo $obj->uniqid;?>
-                            </h3>
-                        </div>
 
-                    </div>
                 </div>
 
                 <div class="container">

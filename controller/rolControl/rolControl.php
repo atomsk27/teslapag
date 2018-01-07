@@ -15,8 +15,6 @@
     {
         $user = new User($_SESSION['user_id'], $conexion);
 
-        echo "salio?";
-        
         if($user->hasPermission('UpdateCursos'))
         {
             echo "admin=update";
@@ -24,13 +22,7 @@
         else {
             echo "noUpdateCursos";
         }
-        if($user->hasPermission('admin'))
-        {
-            echo "admin=???";
-        }
-        else {
-            echo "noAdmin";
-        }
+
     }
     else {
         header('Location: ../../dashboard/');

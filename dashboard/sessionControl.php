@@ -1,14 +1,16 @@
 <?php
     require_once '../controller/users.php';
+    require_once '../controller/rolControl/Role.php';
+    require_once '../controller/rolControl/User.php';
 
     if (isset($_SESSION['loggedin'] ) && $_SESSION['loggedin'] == true ) {
-
+        $user = new User($_SESSION['user_id'], $conn);
     }
     else {
-        echo "Vista solo para usuarios registrados";
         header('Location: ../dashboard/');
         exit;
     }
+
     $now = time();
 
     if ($now > $_SESSION['expire']) {

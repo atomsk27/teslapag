@@ -13,11 +13,8 @@
         }
 
         public static function getRolePerms($idRol, $db){
-            echo "<br>string";
 
             $role = new Role();
-
-            echo "<br>", $db->host_info;
 
             $sql = 'SELECT P.descripcion descripcion FROM RolTienePermiso RTP
                     JOIN Permiso P ON RTP.idPermiso = P.idPermiso
@@ -28,14 +25,12 @@
             $count = 1;
             while($row = $stm->fetch_array(MYSQLI_ASSOC)){
                 $role->permissions[$row['descripcion']] = true;
-                echo "<br>",$count,  "\n",$row['descripcion'];
                 $count++;
             }
             return $role;
         }
         public function hasPerm($permission){
-            echo "<br>hasPerm working";
-            return isset($permissions[$permission]);
+            return isset($this->permissions[$permission]);
         }
     }
  ?>

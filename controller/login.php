@@ -12,18 +12,19 @@
     $username = $_POST['UserEmail'];
     $password = $_POST['UserPass'];
 
-    $query = 'SELECT idUsuario user_id, usr user, psw password FROM vistaUsuario WHERE usr = "'.$username.'"';
+    $query = 'SELECT idUsuario user_id, usr user, psw password, nombreRol FROM vistaUsuario WHERE usr = "'.$username.'"';
 
     $result = $conexion->query($query);
 
     if($result->num_rows > 0)
-    {}  
+    {}
         $row = $result->fetch_array(MYSQLI_ASSOC);
 
         if(password_verify($password, $row['password'])){
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
             $_SESSION['user_id'] = $row['user_id'];
+            $_SESSION['rol_name'] = $row['nombreRol'];
             $_SESSION['start'] = time();
             $_SESSION['expire'] = $_SESSION['start'] + (30 * 60);
 
