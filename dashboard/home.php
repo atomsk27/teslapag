@@ -73,11 +73,11 @@
 					<p class="full-box">
 						<?php echo $num_fac->num_fac; ?>
 					</p>
-					<a href="facilitador.php"><small>Register</small></a>
+					<a href="admin.php"><small>Register</small></a>
 				</div>
 			</article>
 
-			<article class="full-box tile">
+			<article class="full-box tile" href='#'>
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Usuarios
 				</div>
@@ -88,7 +88,7 @@
 					<p class="full-box">
 						<?php echo $num_user->num_user; ?>
 					</p>
-					<a href="standuser.php"><small>Register</small></a>
+					<a href="admin.php"><small>Register</small></a>
 				</div>
 			</article>
 		</div>

@@ -1,5 +1,5 @@
 <?php
-    if ($_SESSION['rol_name'] == 'admin') {
+    if ($_SESSION['rol_name'] == 'Admin') {
  ?>
 <section class="full-box cover dashboard-sideBar">
     <div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
@@ -61,7 +61,7 @@
             </li>
             <li>
                 <a href="admin.php">
-                    <i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Users 
+                    <i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Users
                 </a>
             </li>
             <li>
@@ -226,10 +226,10 @@
                         <a href="admin.php"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin</a>
                     </li>
                     <li>
-                        <a href="facilitador.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Facilitador</a>
+                        <a href="admin.php"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Facilitador</a>
                     </li>
                     <li>
-                        <a href="standuser.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Usuario Regular</a>
+                        <a href="admin.php"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Usuario Regular</a>
                     </li>
                 </ul>
             </li>

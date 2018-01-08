@@ -12,11 +12,11 @@
     $result = $conn->query($sql);
  ?>
  <ul class="nav nav-tabs" style="margin-bottom: 15px;">
-     <li class="active"><a href="#new" data-toggle="tab">New</a></li>
-     <li><a href="#list" data-toggle="tab">List</a></li>
+     <li class="active"><a href="#list" data-toggle="tab">List</a></li>
+     <li class=""><a href="#new" data-toggle="tab">New</a></li>
  </ul>
 
- <div class="tab-pane fade active in" id="new">
+ <div class="tab-pane fade" id="new">
      <div class="container-fluid">
          <div class="row">
              <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -89,7 +89,7 @@
          </div>
      </div>
  </div>
- <div class="tab-pane fade" id="list">
+ <div class="tab-pane fade active in" id="list">
      <div class="table-responsive">
          <table class="table table-hover text-center">
              <thead>

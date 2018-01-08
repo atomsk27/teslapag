@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Usuarios - Administradores</title>
+	<title>Usuarios</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="shortcut icon" href="../images/ico/favicon1.png">
@@ -53,7 +53,7 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Users <small>Admin</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Usuarios <small>Administración</small></h1>
 			</div>
 			<?php
 				if (!empty($_GET['err'])) {
