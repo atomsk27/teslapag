@@ -22,6 +22,7 @@
                          <th class="text-center">Edad</th>
                          <th class="text-center">DNI</th>
                          <th class="text-center">Curso</th>
+                         <th class="text-center">Celular</th>
                      </tr>
                  </thead>
                  <?php
@@ -53,6 +54,9 @@
                          </td>
                          <td>
                              <?php echo $row['curso']; ?>
+                         </td>
+                         <td>
+                             <?php echo $row['celularPadre']; ?>
                          </td>
                      </tr>
                  </tbody>

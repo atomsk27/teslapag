@@ -53,7 +53,10 @@
                                       ?>
                                   </select>
                         </div>
-
+                        <div class="form-group col-sm-6">
+                            <label for="celularPadre">Número Contacto</label>
+                            <input type="number" class='form-control' id='celularPadre' placeholder="Celular" name='celularPadre' maxlength="20">
+                        </div>
                     </div>
             </div>
             <div class="modal-footer">

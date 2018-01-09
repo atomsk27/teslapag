@@ -55,9 +55,9 @@
     $tipo = $_GET['tipo'];
     if ($tipo == 'estudiante') {
         $subs_tipo = 'estudiante';
-        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `edad` , `dni`, `tipo`, `activo`, `uniqid`, `curso`)
+        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `edad` , `dni`, `tipo`, `activo`, `uniqid`, `curso`, `celularPadre`)
         VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_edad . '", "' . $subs_dni. '", "' .$subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio. '" ,
-        "' . $subs_curso . '")';
+        "' . $subs_curso. '" , "' . $subs_celularPadre. '")';
     }
     else {
         $subs_tipo = 'docente';
