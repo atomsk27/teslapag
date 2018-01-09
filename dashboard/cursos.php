@@ -46,7 +46,29 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Cursos <small>Inscritos</small></h1>
 			</div>
-			<?php require_once '../controller/vistaInscritos.php'; ?>
+			<div class="row">
+				<div class="col-md-6">
+					<form>
+						 <select name="cursos" onchange="showCurso(this.value)">
+							 <option value="">Curso:</option>
+							 <?php require_once '../controller/vistaCurso.php';
+							 	while  ($row = $result->fetch_array(MYSQLI_ASSOC)) {?>
+								 	<option value="<?php echo $row['idCurso'];?>">
+										<?php echo $row['nombreCurso']; ?>
+								 	</option>
+							  <?php  }?>
+						 </select>
+				   </form>
+				</div>
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12">
+						<div id="myTabContent" class="tab-content">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -133,6 +155,7 @@
 	<script src="./js/ripples.min.js"></script>
 	<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="./js/main.js"></script>
+	<script src="./js/registro.js"></script>
 	<script>
 		$.material.init();
 	</script>

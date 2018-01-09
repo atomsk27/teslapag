@@ -138,7 +138,6 @@ body, html{
 	width: 40px;
 }
 .dashboard-sideBar-UserInfo{
-	border-top: 1px solid rgba(255, 255, 255, .3);
 	border-bottom: 1px solid rgba(255, 255, 255, .3);
 	color: #fff;
 	font-size: 14px;

@@ -3,11 +3,18 @@
 
     $conn = new mysqli ($db_host, $db_user, $db_password, $db_name);
 
-    $sql = 'SELECT * FROM registro';
+    $idCurso = intval($_GET['q']);
+    $count = 0;
+    $sql = 'SELECT * FROM vistaCursos WHERE idCurso ="'.$idCurso.'"';
 
     $result = $conn->query($sql);
+    $first_row = $result->fetch_array(MYSQLI_ASSOC);
 
+    $sql_alt = 'SELECT * FROM registro WHERE curso ="'.$first_row['nombreCurso'].'"';
+
+    $newResult = $conn->query($sql_alt);
  ?>
+
  <div class="row">
      <div class="col-sm-12 col-sm-offset-0">
          <h4 class="" style='text-align:center;'>
@@ -26,7 +33,7 @@
                      </tr>
                  </thead>
                  <?php
-                 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                 while ($row = $newResult->fetch_array(MYSQLI_ASSOC)) {
                      $count++;
                  ?>
                  <tbody>

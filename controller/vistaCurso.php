@@ -7,8 +7,9 @@
         die('La conexion fallo: '.$conn->connect_error);
     }
 
-    $sql = 'SELECT nombreCurso, duracion, fechaInicio, fechaFin, lugar, nivel, dia, horaInicio, horaFin, idCurso FROM vistaCursos';
+    $sql = 'SELECT nombreCurso, duracion, fechaInicio, fechaFin, lugar, nivel, dia, horaInicio, horaFin, idCurso FROM vistaCursos ORDER BY nombreCurso';
 
     $result = $conn->query($sql);
     $result2 = $conn->query($sql);
+
  ?>
