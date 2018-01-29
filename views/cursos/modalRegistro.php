@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="email">E-mail</label>
-                            <input type="email" class='form-control' id='email' placeholder="E-Mail" name='email' required>
+                            <input type="email" class='form-control' id='email' placeholder="E-Mail" name='email'>
                         </div>
                         <div class="form-group col-sm-6">
                             <label for="colegio">Colegio</label>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="form-group col-sm-6">
                             <label for="dni">DNI</label>
-                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' maxlength="8" required>
+                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' maxlength="8">
                         </div>
                     </div>
                     <div class="row">

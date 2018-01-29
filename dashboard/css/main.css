@@ -225,8 +225,10 @@ body, html{
 }
 .logo_sidebar{
     position: relative;
+    margin-top: 10px;
     height: 80px;
     width: auto;
+    padding-bottom: 15px;    
 }
 /*contentPage*/
 .dashboard-contentPage{

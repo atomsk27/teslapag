@@ -113,7 +113,7 @@
 
             <div class="container">
                 <div class="col-sm-12">
-                    <a href="eventos.html" class="btn btn-default conf-btn">Nueva inscripción</a>
+                    <a href="cursos/" class="btn btn-default conf-btn">Nueva inscripción</a>
                 </div>
             </div>
             <?php
@@ -162,7 +162,7 @@
 
                 <div class="container">
                     <div class="col-sm-12">
-                        <a href="eventos.html" class="btn btn-default conf-btn">Nueva inscripción</a>
+                        <a href="cursos/" class="btn btn-default conf-btn">Nueva inscripción</a>
                     </div>
                 </div>
             <?php

@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="shortcut icon" href="../images/ico/favicon1.png">
 	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
 	<!-- SideBar -->
@@ -46,7 +47,131 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Administración <small>Eventos</small></h1>
 			</div>
-			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+						<li class="active"><a href="#list" data-toggle="tab">List</a></li>
+						<?php if ($user->hasPermission('UpdateEventos')){ ?>
+						<li class=""><a href="#new" data-toggle="tab">New</a></li>
+						<?php } ?>
+
+					</ul>
+					<div class="tab-pane fade active in" id="list">
+				        <div class="table-responsive">
+				            <table class="table table-hover text-center">
+				                <thead>
+				                    <tr>
+				                        <th class="text-center">#</th>
+				                        <th class="text-center">Nombre Evento</th>
+				                        <th class="text-center">Tipo Asistente</th>
+				                        <th class="text-center">Lugar</th>
+				                        <th class="text-center">Fecha</th>
+				                        <th class="text-center">Hora</th>
+				                    </tr>
+				                </thead>
+				                <?php
+								/*require_once '../controller/connection.php';
+								$conn = new mysqli($db_host, $db_user, $db_password, $db_name);*/
+								$sql = 'SELECT * FROM vistaEvento';
+								$result = $conn->query($sql);
+				                while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+				                    $count++;
+
+				                ?>
+				                <tbody>
+				                    <tr>
+				                        <td>
+				                            <?php echo $count; ?>
+				                        </td>
+				                        <td>
+				                            <?php echo $row['nombreEvento']; ?>
+				                        </td>
+				                        <td>
+				                            <?php
+												if ($row['tipoAsistente'] == 1)
+												 	$asistente = 'Docentes';
+												else if ($row['tipoAsistente'] == 2)
+													$asistente = 'Estudiantes';
+												echo $asistente;
+											?>
+				                        </td>
+				                        <td>
+				                            <?php echo $row['lugarEvento']; ?>
+				                        </td>
+				                        <td>
+				                            <?php echo $row['fechaEvento']; ?>
+				                        </td>
+				                        <td>
+				                            <?php echo $row['horaEvento']; ?>
+				                        </td>
+				                    </tr>
+				                </tbody>
+				                <?php }  ?>
+				            </table>
+				            <ul class="pagination pagination-sm">
+				                <li class="disabled"><a href="#!">«</a></li>
+				                <li class="active"><a href="#!">1</a></li>
+				                <li class="disabled"><a href="#!">2</a></li>
+				                <li class="disabled"><a href="#!">3</a></li>
+				                <li class="disabled"><a href="#!">4</a></li>
+				                <li class="disabled"><a href="#!">5</a></li>
+				                <li class="disabled"><a href="#!">»</a></li>
+				            </ul>
+				        </div>
+				    </div>
+			<div class="tab-pane fade" id="new" style="margin-top: -20%;">
+				<!--CORREGIR MARGIN TOP-->
+		        <div class="container-fluid">
+		            <div class="row">
+		                <div class="col-xs-12 col-md-10 col-md-offset-1">
+		                    <form action="../controller/insertEvento.php" method="post">
+		                        <div class="form-group label-floating">
+		                          <label class="control-label">Nombre Evento</label>
+		                          <input class="form-control" type="text" name = 'nombreEvento' required>
+		                        </div>
+		                        <div class="form-group label-floating">
+		                          <label class="control-label">Tipo de Asistente</label>
+								  <select class="form-control" name="tipoAsistente">
+									<option value="0"></option>
+								  	<option value="1">Docente</option>
+									<option value="2">Estudiante</option>
+								  </select>
+		                        </div>
+		                        <div class="form-group label-floating">
+		                          <label class="control-label">Lugar Evento</label>
+		                          <input class="form-control" type="text" name='lugarEvento' required>
+		                        </div>
+		                        <div class="form-group">
+		                          <label class="control-label">Fecha del Evento</label>
+		                          <input class="form-control" type="date" name = 'fechaEvento' required>
+		                        </div>
+		                        <div class="form-group label-floating">
+		                          <label class="control-label">Hora</label>
+		                          <input class="form-control" type="text" name="horaEvento" required>
+		                        </div>
+		                        <!--
+		                        <div class="form-group">
+		                          <label class="control-label">Imagen<small>400px max</small></label>
+		                          <div>
+		                            <input type="text" readonly="" class="form-control" placeholder="Browse...">
+		                            <input type="file">
+		                          </div>
+		                        </div>
+		                        -->
+		                        <p class="text-center">
+		                            <button href="#!" class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Save</button>
+		                        </p>
+		                    </form>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+
+			</div>
+		</div>
 		</div>
 	</section>
 

@@ -30,6 +30,7 @@
                          <th class="text-center">DNI</th>
                          <th class="text-center">Curso</th>
                          <th class="text-center">Celular</th>
+                         <th class="text-center">Eliminar</th>
                      </tr>
                  </thead>
                  <?php
@@ -64,6 +65,11 @@
                          </td>
                          <td>
                              <?php echo $row['celularPadre']; ?>
+                         </td>
+                         <td>
+                             <a href="../controller/delete.php?id=<?php echo $row['uniqid'];?>" class="btn-delete-user">
+                                 <i class="zmdi zmdi-delete"></i>
+                             </a>
                          </td>
                      </tr>
                  </tbody>

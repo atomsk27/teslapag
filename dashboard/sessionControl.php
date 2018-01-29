@@ -1,5 +1,6 @@
 <?php
     require_once '../controller/users.php';
+    require_once '../controller/vistaCurso.php';
     require_once '../controller/rolControl/Role.php';
     require_once '../controller/rolControl/User.php';
 
