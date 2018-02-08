@@ -63,53 +63,95 @@
 
                 <div class="row eventos-sec">
                     <div class="col-sm-8" >
-                        <div class="eventos-second">
-                            <h3>Desarrollando habilidades matemáticas con Scratch</h3>
-                            <h5>Curso dirigido para docentes.</h5>
-                            <ul>
-                              <li>
-                                <h5>
-                                <strong>Lugar: </strong>
-                                Colegio Emblemático María Auxiliadora - Puno</h5>
-                              </li>
-                              <li>
-                                <h5>
-                                <strong>Fecha: </strong>
-                                Sábado, 4 de noviembre </h5>
-                              </li>
-                              <li>
-                                <h5>
-                                <strong>Hora: </strong>
-                                14:30 Hs - 18:30 Hs UTC-5</h5>
-                              </li>
-                            </ul>
-                            <a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos-docentes">Inscripciones</a>
-                        </div>
+                        <?php
+                            require_once '../../controller/vistaEvento.php';
+                            while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+                         ?>
+                         <div class="eventos-second">
 
-                    </div>
-                    <div class="col-sm-4">
-                        <img src="../../images/eventos/taller_scratch_4_nov-2017.jpg" alt="Scratch-Docentes" class="img-eventos">
-                    </div>
+                             <h3>
+                                 <?php echo $row['nombreEvento']; ?>
+                             </h3>
+                             <h5>
+                                 <?php echo $row['descripcion']; ?>
+                             </h5>
+
+                             <h5>Evento dirigido para
+                                 <?php
+                                 if ($row['tipoAsistente'] == 2) {
+                                     $asistente = 'estudiantes';
+                                 }
+                                 else {$asistente = 'docentes';}
+                                echo $asistente;
+                                 ?>
+                             </h5>
+                             <ul>
+                               <li>
+                                 <h5>
+                                     <strong>Lugar: </strong>
+                                     <?php echo $row['lugarEvento']; ?>
+                                </h5>
+                               </li>
+                               <li>
+                                 <h5>
+                                     <strong>Fecha: </strong>
+                                     <?php echo $row['fechaEvento']; ?>
+                                </h5>
+                               </li>
+                               <li>
+                                 <h5>
+                                     <strong>Hora: </strong>
+                                     <?php echo $row['horaEvento']; ?>
+                                </h5>
+                               </li>
+                             </ul>
+                             <?php
+                                echo "<a href='' class='btn btn-default modal-btn' data-toggle='modal' data-target='#registro-eventos-$asistente'>Inscripciones</a>";
+                              ?>
+                         </div>
+                     </div>
+                     <div class="col-sm-4">
+                         <?php
+                            $img = $row['idEvento'];
+                            echo '<img src="../../controller/verImagen.php?id='.$img.' alt="" class="img-eventos">';
+                          ?>
+                     </div>
+                         <?php
+
+                            }
+                         ?>
                 </div>
+
                 <div class="horizontal-line"></div>
                 <div class="text-center">
                     <h3 class="title-one evn-past">Eventos Pasados</h3>
                 </div>
-
+                <?php
+                    require_once '../../controller/vistaEvento.php';
+                    while ($row_old = $result_old->fetch_array(MYSQLI_ASSOC)) {
+                 ?>
                 <div class="row eventos-pri">
                     <div class="col-sm-4">
-                        <img src="../../images/services/scratch.jpg" alt="Scratch" class="img-scratch">
+                        <?php
+                           $img = $row_old['idEvento'];
+                           echo '<img src="../../controller/verImagen.php?id='.$img.' alt="" class="img-eventos">';
+                         ?>
                     </div>
                     <div class="col-sm-8" >
                         <div class="eventos-first">
-                            <h3>Creando Fractales y Polígonos con Scratch</h3>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, facere sequi repellendus tenetur temporibus voluptate vero, illum id odit commodi distinctio facilis libero mollitia aut magni, rem beatae quibusdam minus.</h5>
-                            <!--<a href="" class="btn btn-default modal-btn" data-toggle="modal" data-target="#registro-eventos">Inscripciones</a>-->
+                            <h3>
+                                <?php echo $row_old['nombreEvento']; ?>
+                            </h3>
+                            <h5>
+                                <?php echo $row_old['descripcion']; ?>
+                            </h5>
                         </div>
 
                     </div>
                 </div>
-
+                <?php
+                    }
+                 ?>
                 <div class="row eventos-sec">
                     <div class="col-sm-12">
                         <!--
@@ -123,7 +165,7 @@
                     </div>
                 </div>
                 <!--MODAL EVENTOS-->
-                <div class="modal fade" id="registro-eventos" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal fade" id="registro-eventos-estudiantes" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role='document'>
                         <div class="modal-content">
                             <div class="modal-header">

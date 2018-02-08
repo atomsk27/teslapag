@@ -127,10 +127,14 @@
 		        <div class="container-fluid">
 		            <div class="row">
 		                <div class="col-xs-12 col-md-10 col-md-offset-1">
-		                    <form action="../controller/insertEvento.php" method="post">
+		                    <form action="../controller/insertEvento.php" method="post" enctype="multipart/form-data">
 		                        <div class="form-group label-floating">
 		                          <label class="control-label">Nombre Evento</label>
 		                          <input class="form-control" type="text" name = 'nombreEvento' required>
+		                        </div>
+								<div class="form-group label-floating">
+		                          <label class="control-label">Descripcion</label>
+		                          <input class="form-control" type="text" name = 'descripcionEvento' required>
 		                        </div>
 		                        <div class="form-group label-floating">
 		                          <label class="control-label">Tipo de Asistente</label>
@@ -152,15 +156,15 @@
 		                          <label class="control-label">Hora</label>
 		                          <input class="form-control" type="text" name="horaEvento" required>
 		                        </div>
-		                        <!--
+
 		                        <div class="form-group">
 		                          <label class="control-label">Imagen<small>400px max</small></label>
 		                          <div>
 		                            <input type="text" readonly="" class="form-control" placeholder="Browse...">
-		                            <input type="file">
+		                            <input type="file" name="imagen" value="imagen">
 		                          </div>
 		                        </div>
-		                        -->
+
 		                        <p class="text-center">
 		                            <button href="#!" class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Save</button>
 		                        </p>
