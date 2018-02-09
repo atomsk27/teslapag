@@ -70,7 +70,10 @@
                          <div class="eventos-second">
 
                              <h3>
-                                 <?php echo $row['nombreEvento']; ?>
+                                 <?php
+                                    $evento = $row['nombreEvento'];
+                                    echo $row['nombreEvento'];
+                                ?>
                              </h3>
                              <h5>
                                  <?php echo $row['descripcion']; ?>
@@ -140,7 +143,9 @@
                     <div class="col-sm-8" >
                         <div class="eventos-first">
                             <h3>
-                                <?php echo $row_old['nombreEvento']; ?>
+                                <?php
+                                    echo $row_old['nombreEvento'];
+                                ?>
                             </h3>
                             <h5>
                                 <?php echo $row_old['descripcion']; ?>
@@ -173,7 +178,7 @@
                                     <h2 class="text-center">Inscripciones</h2>
                             </div>
                             <div class="modal-body">
-                                <form action="../../controller/registro.php?tipo=estudiante" method="post" id='form-estudiantes' name="form-estudiantes">
+                                <form action="../../controller/registro.php?tipo=estudiante" method="post" id="form-estudiantes" name="form-estudiantes">
                                     <h3>Datos del participante</h3>
                                     <div class="row">
                                         <div class="form-group col-sm-6">
@@ -203,6 +208,12 @@
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
                                             <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' maxlength="8" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="evento">Evento</label>
+                                            <?php echo '<input type="text" class="form-control" id="evento" placeholder="evento" name="evento" value="'.$evento.'" readonly="readonly">';?>
                                         </div>
                                     </div>
                                     <h3>Datos del padre o apoderado</h3>

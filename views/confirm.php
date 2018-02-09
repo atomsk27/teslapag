@@ -39,6 +39,7 @@
             </div>
         </div>
     </header>
+
     <div class="confirm-home">
         <div class="container">
                 <div class="jumbotron">
@@ -50,6 +51,7 @@
                 include '../controller/connection.php';
                 $db_table_name = 'registro';
                 $db_conn = mysqli_connect($db_host, $db_user, $db_password, $db_name);
+                $id = $_GET['id'];
                 if (!$db_conn) {
                     die('No se ha podido conectar a la base de datos');
                 }
@@ -97,7 +99,7 @@
                 </div>
                 <div class="container">
                     <div class="code">
-                        <h3><strong>Curso:</strong>
+                        <h3><strong>Evento:</strong>
                             <?php echo $obj->curso;?>
                         </h3>
                     </div>
@@ -112,15 +114,20 @@
             </div>
 
             <div class="container">
-                <div class="col-sm-12">
-                    <a href="cursos/" class="btn btn-default conf-btn">Nueva inscripción</a>
+                <div class="col-sm-6">
+                    <a href="eventos/" class="btn btn-default conf-btn">Nueva inscripción</a>
+                </div>
+                <div class="col-sm-6">
+                    <!--
+                        <?php echo '<a href="../controller/descargaPDF.php?id='.$id.'" class="btn btn-default conf-btn">Descargar PDF</a>' ?>
+                    -->
+                    <a href="" onclick='myFunction()' class="btn btn-default conf-btn">Imprimir</a>
                 </div>
             </div>
             <?php
 
                 }
             elseif ($obj->tipo == 'docente') {
-
             ?>
                 <div class="container gene">
                     <div class="container informacion">
@@ -161,8 +168,11 @@
                 </div>
 
                 <div class="container">
-                    <div class="col-sm-12">
-                        <a href="cursos/" class="btn btn-default conf-btn">Nueva inscripción</a>
+                    <div class="col-sm-6">
+                        <a href="eventos/" class="btn btn-default conf-btn">Nueva inscripción</a>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="" onclick='myFunction()' class="btn btn-default conf-btn">Imprimir</a>
                     </div>
                 </div>
             <?php
@@ -176,6 +186,10 @@
 
         </div>
     </div>
-
+    <script>
+    function myFunction() {
+        window.print();
+    }
+    </script>
 </body>
 </html>

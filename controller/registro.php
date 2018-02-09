@@ -27,6 +27,7 @@
     $subs_emailPadre = utf8_decode($_POST['emailPadre']);
     $subs_dniPadre = utf8_decode($_POST['dniPadre']);
     $subs_celularPadre = utf8_decode($_POST['celularPadre']);
+    $evento = $_POST['evento'];
 
     $subs_activo = 1;
     function uniqidReal($lenght = 6){
@@ -57,12 +58,12 @@
         $subs_tipo = 'estudiante';
         $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `edad` , `dni`, `tipo`, `activo`, `uniqid`, `curso`, `celularPadre`)
         VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_edad . '", "' . $subs_dni. '", "' .$subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio. '" ,
-        "' . $subs_curso. '" , "' . $subs_celularPadre. '")';
+        "' . $evento. '" , "' . $subs_celularPadre . '")';
     }
     else {
         $subs_tipo = 'docente';
-        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `dni`,`celularPadre`, `tipo`, `activo`, `uniqid`)
-        VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_dni . '", "'. $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio . '")';
+        $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `dni`,`celularPadre`, `tipo`, `activo`, `uniqid`, `curso`)
+        VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_dni . '", "'. $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio. '" , "' .$evento . '")';
     }
 
 
@@ -73,9 +74,9 @@
     if (!$retry_value) {
        die('Error: ' . mysqli_error($db_connection));
     }
-    $mensaje = 'Para confirmar tu inscripcion\n\n';
-    $mensaje .= 'Active su inscripcion pulsando en el enlace: http://www.teslaeducationsteam.org/controller/activation.php?id='.$subs_aleatorio.'';
-
+    //$mensaje = 'Para confirmar tu inscripcion\n\n';
+    //$mensaje .= 'Active su inscripcion pulsando en el enlace: http://www.teslaeducationsteam.org/controller/activation.php?id='.$subs_aleatorio.'';
+    $mensaje = 'Gracias con inscribirse a nuestros eventos';
     $asunto = 'Confirmación inscripcion TESLA Education';
 
     //if(mail($subs_email, $asunto, $mensaje)){
