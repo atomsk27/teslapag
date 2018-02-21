@@ -2,6 +2,7 @@
     require_once 'connection.php';
     session_start();
     $conn = new mysqli ($db_host, $db_user, $db_password, $db_name);
+    $conn->set_charset('utf8');
 
     if ($conn->connect_error) {
         die('Error de conexion: '.$conn->connect_error);

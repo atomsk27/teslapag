@@ -2,15 +2,24 @@
     require_once 'connection.php';
 
     $conn = new mysqli ($db_host, $db_user, $db_password, $db_name);
+    $conn->set_charset('utf8');
 
     $idCurso = intval($_GET['q']);
+    $idEvento = intval($_GET['e']);
+
     $count = 0;
-    $sql = 'SELECT * FROM vistaCursos WHERE idCurso ="'.$idCurso.'"';
-
-    $result = $conn->query($sql);
-    $first_row = $result->fetch_array(MYSQLI_ASSOC);
-
-    $sql_alt = 'SELECT * FROM registro WHERE curso ="'.$first_row['nombreCurso'].'"';
+    if (isset($_GET['q'])) {
+        $sql = 'SELECT * FROM vistaCursos WHERE idCurso ="'.$idCurso.'"';
+        $result = $conn->query($sql);
+        $first_row = $result->fetch_array(MYSQLI_ASSOC);
+        $sql_alt = 'SELECT * FROM registro WHERE curso ="'.$first_row['nombreCurso'].'"';
+    }
+    else if (isset($_GET['e'])) {
+        $sql_evento = 'SELECT * FROM vistaEvento WHERE idEvento ="'.$idEvento.'"';
+        $result2 = $conn->query($sql_evento);
+        $new_row = $result2->fetch_array(MYSQLI_ASSOC);
+        $sql_alt = 'SELECT * FROM registro WHERE curso="'.$new_row['nombreEvento'].'"';
+    }
 
     $newResult = $conn->query($sql_alt);
  ?>

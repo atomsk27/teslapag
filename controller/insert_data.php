@@ -2,6 +2,7 @@
     require_once 'connection.php';
 
     $conexion = new mysqli($db_host, $db_user, $db_password, $db_name);
+    $conexion->set_charset('utf8');
 
     if($conexion->connect_error){
         die('La conexion fallo: '.$conexion->connect_error);

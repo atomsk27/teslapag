@@ -53,76 +53,13 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-						<li class="active"><a href="#list" data-toggle="tab">List</a></li>
 						<?php if ($user->hasPermission('UpdateEventos')){ ?>
-						<li class=""><a href="#new" data-toggle="tab">New</a></li>
+						<li class="active"><a href="#new" data-toggle="tab">New</a></li>
 						<?php } ?>
-
+						<li class=""><a href="#list" data-toggle="tab">List</a></li>
 					</ul>
-					<div class="tab-pane fade active in" id="list">
-				        <div class="table-responsive">
-				            <table class="table table-hover text-center">
-				                <thead>
-				                    <tr>
-				                        <th class="text-center">#</th>
-				                        <th class="text-center">Nombre Evento</th>
-				                        <th class="text-center">Tipo Asistente</th>
-				                        <th class="text-center">Lugar</th>
-				                        <th class="text-center">Fecha</th>
-				                        <th class="text-center">Hora</th>
-				                    </tr>
-				                </thead>
-				                <?php
-								/*require_once '../controller/connection.php';
-								$conn = new mysqli($db_host, $db_user, $db_password, $db_name);*/
-								$sql = 'SELECT * FROM vistaEvento';
-								$result = $conn->query($sql);
-				                while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-				                    $count++;
-
-				                ?>
-				                <tbody>
-				                    <tr>
-				                        <td>
-				                            <?php echo $count; ?>
-				                        </td>
-				                        <td>
-				                            <?php echo $row['nombreEvento']; ?>
-				                        </td>
-				                        <td>
-				                            <?php
-												if ($row['tipoAsistente'] == 1)
-												 	$asistente = 'Docentes';
-												else if ($row['tipoAsistente'] == 2)
-													$asistente = 'Estudiantes';
-												echo $asistente;
-											?>
-				                        </td>
-				                        <td>
-				                            <?php echo $row['lugarEvento']; ?>
-				                        </td>
-				                        <td>
-				                            <?php echo $row['fechaEvento']; ?>
-				                        </td>
-				                        <td>
-				                            <?php echo $row['horaEvento']; ?>
-				                        </td>
-				                    </tr>
-				                </tbody>
-				                <?php }  ?>
-				            </table>
-				            <ul class="pagination pagination-sm">
-				                <li class="disabled"><a href="#!">«</a></li>
-				                <li class="active"><a href="#!">1</a></li>
-				                <li class="disabled"><a href="#!">2</a></li>
-				                <li class="disabled"><a href="#!">3</a></li>
-				                <li class="disabled"><a href="#!">4</a></li>
-				                <li class="disabled"><a href="#!">5</a></li>
-				                <li class="disabled"><a href="#!">»</a></li>
-				            </ul>
-				        </div>
-				    </div>
-			<div class="tab-pane fade" id="new" style="margin-top: -20%;">
+			<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade active in" id="new">
 				<!--CORREGIR MARGIN TOP-->
 		        <div class="container-fluid">
 		            <div class="row">
@@ -173,7 +110,78 @@
 		            </div>
 		        </div>
 		    </div>
+			<!--END NEW-->
+			<div class="tab-pane fade " id="list">
+				<div class="table-responsive">
+					<table class="table table-hover text-center">
+						<thead>
+							<tr>
+								<th class="text-center">#</th>
+								<th class="text-center">Nombre Evento</th>
+								<th class="text-center">Tipo Asistente</th>
+								<th class="text-center">Lugar</th>
+								<th class="text-center">Fecha</th>
+								<th class="text-center">Hora</th>
+								<th class="text-center">Eliminar</th>
+							</tr>
+						</thead>
+						<?php
+						/*require_once '../controller/connection.php';
+						$conn = new mysqli($db_host, $db_user, $db_password, $db_name);*/
+						$sql = 'SELECT * FROM vistaEvento';
+						$result = $conn->query($sql);
+						while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+							$count++;
 
+						?>
+						<tbody>
+							<tr>
+								<td>
+									<?php echo $count; ?>
+								</td>
+								<td>
+									<?php echo $row['nombreEvento']; ?>
+								</td>
+								<td>
+									<?php
+										if ($row['tipoAsistente'] == 1)
+											$asistente = 'Docentes';
+										else if ($row['tipoAsistente'] == 2)
+											$asistente = 'Estudiantes';
+										echo $asistente;
+									?>
+								</td>
+								<td>
+									<?php echo $row['lugarEvento']; ?>
+								</td>
+								<td>
+									<?php echo $row['fechaEvento']; ?>
+								</td>
+								<td>
+									<?php echo $row['horaEvento']; ?>
+								</td>
+								<td>
+									<a href="../controller/deleteEvento.php?id=<?php echo $row['idEvento'];?>" class="btn-del-evento">
+	                                    <i class="zmdi zmdi-delete"></i>
+	                                </a>
+								</td>
+							</tr>
+						</tbody>
+						<?php }  ?>
+					</table>
+					<ul class="pagination pagination-sm">
+						<li class="disabled"><a href="#!">«</a></li>
+						<li class="active"><a href="#!">1</a></li>
+						<li class="disabled"><a href="#!">2</a></li>
+						<li class="disabled"><a href="#!">3</a></li>
+						<li class="disabled"><a href="#!">4</a></li>
+						<li class="disabled"><a href="#!">5</a></li>
+						<li class="disabled"><a href="#!">»</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--End LIST-->
+			</div>
 			</div>
 		</div>
 		</div>

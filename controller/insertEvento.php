@@ -2,18 +2,19 @@
     require_once 'connection.php';
 
     $conn = new mysqli ($db_host, $db_user, $db_password, $db_name);
+    $conn->set_charset('utf8');
 
     if ($conn->connect_error)
     {
         die('La conexion con la base de datos fallo'.$conn->connect_error);
     }
 
-    $subs_nombreEvento = utf8_decode($_POST['nombreEvento']);
-    $subs_descripcionEvento = utf8_decode($_POST['descripcionEvento']);
-    $subs_tipoAsistente = utf8_decode($_POST['tipoAsistente']);
-    $subs_lugarEvento = utf8_decode($_POST['lugarEvento']);
-    $subs_fechaEvento = utf8_decode($_POST['fechaEvento']);
-    $subs_horaEvento = utf8_decode($_POST['horaEvento']);
+    $subs_nombreEvento = $_POST['nombreEvento'];
+    $subs_descripcionEvento = $_POST['descripcionEvento'];
+    $subs_tipoAsistente = $_POST['tipoAsistente'];
+    $subs_lugarEvento = $_POST['lugarEvento'];
+    $subs_fechaEvento = $_POST['fechaEvento'];
+    $subs_horaEvento = $_POST['horaEvento'];
 
     $subs_imagen = $_FILES['imagen']['tmp_name'];
     $subs_peso = $_FILES['imagen']['size'];

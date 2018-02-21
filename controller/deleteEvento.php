@@ -9,18 +9,19 @@
     }
     $conn->autocommit(FALSE);
 
-    $idUsuario = $_GET['id'];
+    $idEvento = $_GET['id'];
 
-    $delete_user = 'DELETE FROM registro WHERE uniqid="'.$idUsuario.'" LIMIT 1';
+    $delete_evento = 'DELETE FROM Evento WHERE idEvento="'.$idEvento.'" LIMIT 1';
 
-    $result = $conn->query($delete_user);
+    $result = $conn->query($delete_evento);
 
     if ($result) {
-        Header('Location : ../dashboard/admin.php');
+        Header('Location : ../dashboard/evento.php');
         $conn->commit();
+        exit;
     }
     else {
-        echo "Error Eliminado Usuario";
+        echo "Error Eliminado Evento";
     }
     $conn->close();
  ?>

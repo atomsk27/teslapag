@@ -97,6 +97,38 @@
                         </h5>
                     </div>
                 </div>
+                <h3 class = 'DPersonales'>Datos Apoderado:</h3>
+                <div class="container informacion">
+                    <div class="col-sm-4">
+                        <h5><strong>Nombre Apoderado:</strong>
+                            <?php echo $obj->nomPadre;?>
+                        </h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5><strong>Apellidos Apoderado:</strong>
+                            <?php echo $obj->apePadre;?>
+                        </h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5><strong>DNI Apoderado:</strong>
+                            <?php echo $obj->dniPadre;?>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="container informacion">
+                    <div class="col-sm-4">
+                        <h5><strong>Email:</strong>
+                            <?php echo $obj->emailPadre;?>
+                        </h5>
+                    </div>
+                    <div class="col-sm-4">
+                        <h5><strong>Numero de Contacto:</strong>
+                            <?php echo $obj->celularPadre;?>
+                        </h5>
+                    </div>
+                </div>
+
                 <div class="container">
                     <div class="code">
                         <h3><strong>Evento:</strong>

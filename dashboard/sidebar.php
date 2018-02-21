@@ -47,15 +47,20 @@
                 </a>
             </li>
             <li>
+                <a href="cursos.php">
+                    <i class="zmdi zmdi-case zmdi-hc-fw"></i> Cursos 
+                </a>
+            </li>
+            <li>
                 <a href="#!" class="btn-sideBar-SubMenu">
-                    <i class="zmdi zmdi-case zmdi-hc-fw"></i> Administración <i class="zmdi zmdi-caret-down pull-right"></i>
+                    <i class="zmdi zmdi-case zmdi-hc-fw"></i> Eventos <i class="zmdi zmdi-caret-down pull-right"></i>
                 </a>
                 <ul class="list-unstyled full-box">
                     <li>
-                        <a href="cursos.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Cursos</a>
+                        <a href="eventos.php"><i class="zmdi zmdi-timer zmdi-hc-fw"></i> Eventos</a>
                     </li>
                     <li>
-                        <a href="eventos.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Eventos</a>
+                        <a href="inscritos.php"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Inscritos</a>
                     </li>
                 </ul>
             </li>

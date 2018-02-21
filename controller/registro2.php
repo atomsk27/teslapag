@@ -59,12 +59,12 @@
         $subs_tipo = 'estudiante';
         $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `edad` , `dni`, `tipo`, `activo`, `uniqid`, `curso`, `celularPadre`, `nomPadre`, `apePadre`, `emailPadre`, `dniPadre`)
         VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_edad . '", "' . $subs_dni. '", "' .$subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio. '" ,
-        "' . $evento. '" , "' . $subs_celularPadre. '" , "' . $subs_nomPadre. '" , "' . $subs_apePadre. '" , "' . $subs_emailPadre. '" , "' . $subs_dniPadre . '")';
+        "' . $subs_curso. '" , "' . $subs_celularPadre. '" , "' . $subs_nomPadre. '" , "' . $subs_apePadre. '" , "' . $subs_emailPadre. '" , "' . $subs_dniPadre . '")';
     }
     else {
         $subs_tipo = 'docente';
         $insert_value = 'INSERT INTO `' . $db_name . '`.`'.$db_table_name.'` (`nombres` , `apellidos` , `email` , `colegio` , `dni`,`celularPadre`, `tipo`, `activo`, `uniqid`, `curso`)
-        VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_dni . '", "'. $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio. '" , "' .$evento . '")';
+        VALUES ("' . $subs_name . '", "' . $subs_last . '", "' . $subs_email . '", "' . $subs_colegio . '", "' . $subs_dni . '", "'. $subs_celularPadre . '" ,"' . $subs_tipo . '" , "' . $subs_activo . '" , "' . $subs_aleatorio. '" , "' .$subs_curso . '")';
     }
 
 

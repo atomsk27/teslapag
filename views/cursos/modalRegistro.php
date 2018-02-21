@@ -6,7 +6,7 @@
                     <h2 class="text-center">Inscripciones</h2>
             </div>
             <div class="modal-body">
-                <form action="../../controller/registro.php?tipo=estudiante" method="post" id='form-estudiantes' name="form-estudiantes">
+                <form action="../../controller/registro2.php?tipo=estudiante" method="post" id='form-estudiantes' name="form-estudiantes">
                     <h3>Datos del participante</h3>
                     <div class="row">
                         <div class="form-group col-sm-6">

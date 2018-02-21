@@ -24,6 +24,20 @@ $(document).ready(function(){
 			window.location.href="../controller/sessionControl/cerrarSesion.php";
 		});
 	});
+	$('.btn-del-evento').on('click', function(){
+		swal({
+		  	title: 'Estás seguro?',
+		  	text: "El evento será eliminado",
+		  	type: 'warning',
+		  	showCancelButton: true,
+		  	confirmButtonColor: '#03A9F4',
+			  	cancelButtonColor: '#F44336',
+		  	confirmButtonText: '<i class="zmdi zmdi-delete"></i> Si, Eliminar!',
+		  	cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> No, Salir!'
+		}).then(function () {
+			window.location.href="../controller/deleteEvento.php";
+		});
+	});
 	$('.btn-menu-dashboard').on('click', function(){
 		var body=$('.dashboard-contentPage');
 		var sidebar=$('.dashboard-sideBar');

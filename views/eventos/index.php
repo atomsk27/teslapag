@@ -193,7 +193,7 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="email">E-mail</label>
-                                            <input type="email" class='form-control' id='email' placeholder="E-Mail" name='email' required>
+                                            <input type="email" class='form-control' id='email' placeholder="E-Mail" name='email' >
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="colegio">Colegio</label>
@@ -203,11 +203,11 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="edad">Edad</label>
-                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad'>
+                                            <input type="number" class='form-control' id='edad' placeholder="Edad" name='edad' value="00">
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
-                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' maxlength="8" required>
+                                            <input type="number"  onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' class='form-control' id='dni' placeholder="DNI" name='dni' maxlength="8" value='00000000'>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -234,7 +234,7 @@
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="dniPadre">DNI</label>
-                                            <input type="number" class='form-control' id='dniPadre' placeholder="DNI Apoderado" name='dniPadre' maxlength="8">
+                                            <input type="number" onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' class='form-control' id='dniPadre' placeholder="DNI Apoderado" name='dniPadre' maxlength="8">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -289,7 +289,7 @@
                                     <div class="row">
                                         <div class="form-group col-sm-6">
                                             <label for="dni">DNI</label>
-                                            <input type="number" class='form-control' id='dni' placeholder="DNI" name='dni' max=99999999 required>
+                                            <input type="number"  onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' class='form-control' id='dni' placeholder="DNI" name='dni' max=99999999 required>
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="celularPadre">Celular</label>
@@ -342,5 +342,22 @@
             }
         }
     </script>
+    <script>
+      function maxLengthCheck(object) {
+        if (object.value.length > object.maxLength)
+          object.value = object.value.slice(0, object.maxLength)
+      }
+
+      function isNumeric (evt) {
+        var theEvent = evt || window.event;
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode (key);
+        var regex = /[0-9]|\./;
+        if ( !regex.test(key) ) {
+          theEvent.returnValue = false;
+          if(theEvent.preventDefault) theEvent.preventDefault();
+        }
+      }
+  </script>
 </body>
 </html>

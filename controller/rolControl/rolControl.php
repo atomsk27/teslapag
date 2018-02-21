@@ -4,7 +4,7 @@
     require_once '../connection.php';
     //Rol control
     session_start();
-    $conexion = new mysqli($db_host, $db_user, $db_password, $db_name);
+    $conexion = new mysqli($db_host, $db_user, $db_password, $db_name);    
 
     if($conexion->connect_error){
         die('La conexion fallo: '.$conexion->connect_error);
